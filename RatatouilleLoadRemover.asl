@@ -10,7 +10,7 @@ state("overlay")
 
 isLoading
 {
-	return current.load != 0;
+	return current.load != 0.0;
 }
 
 // NiV-L-A and ThePhotoshopMaster
