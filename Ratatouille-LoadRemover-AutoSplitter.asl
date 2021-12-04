@@ -4,14 +4,20 @@ state("overlay_win2k")
 	uint level : 0x003DD8A8, 0x8, 0x9C4, 0x7C;
 	uint activeMissions : 0x003DD8A8, 0x8, 0xAF4, 0x20;
 	float xPos : 0x003DBAA0;
+	byte paused : 0x003DD8B4, 0x4;
+	byte menuState : 0x003C9F54, 0x12D8;
+	uint dialogType : 0x003C9F54, 0x12DC;
 }
 
 state("overlay")
 {
-	float load : 0x003DE8A8, 0x8, 0xDD4, 0x370, 0x988;
+	float load : 0x003DE8A8, 0x8, 0x9D4, 0x5C;
 	uint level : 0x003DE8A8, 0x8, 0x9C4, 0x7C;
 	uint activeMissions : 0x003DE8A8, 0x8, 0xAF4, 0x20;
 	float xPos : 0x003DCAA0;
+	byte paused : 0x003DE8B4, 0x4;
+	byte menuState : 0x003CAF54, 0x12D8;
+	uint dialogType : 0x003CAF54, 0x12DC;
 }
 
 isLoading
@@ -27,38 +33,40 @@ init
 
 start
 {
-	// Check to see if current level is Somewhere in France, and old x-position is the start x-position, 
-	// if so return if x-position has changed
-	if (current.level == 1 && ((Math.Abs(old.xPos) - Math.Abs(-16.57965)) < 0.0001)) {
-		return !((Math.Abs(current.xPos) - Math.Abs(old.xPos)) < 0.0001);
+	// If current level is Somewhere in France
+	if (current.level == 1) {
+		double deltaStartPos = Math.Abs(old.xPos) - Math.Abs(-16.57965);
+		// If old xpos is virtually the start position
+		if ((deltaStartPos > -0.00001) && (deltaStartPos < 0.00001)) {
+			// Return if game isn't paused and a textbox dialog was closed
+			return (current.paused == 0 && old.menuState == 5 && old.dialogType == 7);
+		}
 	}
 }
 
 split
 {	
-	// Keep last visited updated
+	uint numCurrentActiveMissions = current.activeMissions >> 0xe;
+	uint numOldActiveMissions = old.activeMissions >> 0xe;
+
+	// Update last visited level if needed
 	if (old.level != current.level) {
 		vars.prevLevel = old.level;
 	}
-	uint numCurrentActiveMissions = current.activeMissions >> 0xe;
-	uint numOldActiveMissions = old.activeMissions >> 0xe;
 	
 	// Last Split, mission count goes to 1 after reaching the final cutscene trigger
 	if (current.level == 24 && (numCurrentActiveMissions < numOldActiveMissions)) {
 		return true;
 	}
 
-	// Disable splitting on entering Paris Streets (Not splitting if last level is Home Stink Home)
-	if (old.level == 3) {
-		return false;
-	}
-
-	// Splitting based on level change, disabled for cooking minigames in Desserted Kitchen
-	if (old.level != 23 && old.level != 17 && old.level != 19 && old.level != 14) {
+	// Splitting based on level change,
+	// disabled for cooking minigames in Desserted Kitchen and when entering Paris Streets
+	if (old.level != 3 && old.level != 14 && old.level != 17 && old.level != 19 && old.level != 23) {
 		return current.level != old.level;
 	}
 
-	// Splitting based on active mission count (After completing a mission in Desserted Kitchen count goes back to 7)
+	// Splitting based on active mission count (After completing a mission in Desserted Kitchen count goes back to 7).
+	// This spliting is disabled if previous level was 12 to prevent double splitting (It already splits when changing from 12 to 23).
 	if (current.level == 23 && vars.prevLevel != 12) {
 		if (numCurrentActiveMissions < numOldActiveMissions) {
 			return numCurrentActiveMissions == 7;
