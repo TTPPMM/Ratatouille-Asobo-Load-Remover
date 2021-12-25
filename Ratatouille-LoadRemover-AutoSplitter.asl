@@ -27,6 +27,7 @@ isLoading
 
 init
 {
+	refreshRate = 160;
 	// Keep last visited level stored, defaults to Menu02
 	vars.prevLevel = 0;
 }
@@ -67,7 +68,8 @@ split
 
 	// Splitting based on active mission count (After completing a mission in Desserted Kitchen count goes back to 7).
 	// This spliting is disabled if previous level was 12 to prevent double splitting (It already splits when changing from 12 to 23).
-	if (current.level == 23 && vars.prevLevel != 12) {
+	// Also disabled in case the last level was 12, 14, 17 or 19 (DK Cake, DK Soup, DK Mixer and DK Salad) to prevent accidental splits.
+	if (current.level == 23 && vars.prevLevel != 12 && vars.prevLevel != 14 && vars.prevLevel != 17 && vars.prevLevel != 19) {
 		if (numCurrentActiveMissions < numOldActiveMissions) {
 			return numCurrentActiveMissions == 7;
 		}
