@@ -4,10 +4,10 @@ This is an autosplitter/load remover for the game **Ratatouille (Asobo)**
 
 Game versions currently supported:
 
-- Brazilian
 - English (USA)
-- French
+- Dutch / French
 - German
 - Polish
-- Portuguese/Spanish
+- Portuguese (Brazil)
+- Portuguese (Portugal) / Spanish
 - Scandinavian
