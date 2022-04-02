@@ -88,8 +88,13 @@ state("overlay_win2k", "DutchFrenchGermanPortugueseSpanish")
 
 startup
 {
-	//Game Version Settings
-	settings.Add("autoSplitter", false, "Auto-splitter (any% only)");
+	//Custom settings
+	settings.Add("split_start", false, "Auto-start");
+	settings.SetToolTip("split_start", "Starts the timer automatically in the first frame of movement.");
+	settings.Add("split_any", false, "Auto-splitter (any%)");
+	settings.SetToolTip("split_any", "Splits on all the common any% splits,\n except the split at the end of the chase.");
+	settings.Add("split_end", false, "Auto-end");
+	settings.SetToolTip("split_end", "Splits at the end of the final chase.");
 }
 
 init
@@ -115,7 +120,6 @@ init
 	}
 
 	String headerBytesString = BitConverter.ToString(headerBytes);
-	print(headerBytesString);
 	
 	switch (headerBytesString) {
 		case headerUS:
@@ -147,7 +151,6 @@ init
 			);
 			break;
 	}
-	print(version);
 
 	refreshRate = 160;
 	// Keep last visited level stored, defaults to Menu02
@@ -163,7 +166,7 @@ isLoading
 
 start
 {
-	if (version != "" && settings["autoSplitter"]) {
+	if (version != "" && settings["split_start"]) {
 		// If current level is Somewhere in France
 		if (current.level == 1) {
 			double deltaStartPos = Math.Abs(old.xPos) - Math.Abs(-16.57965);
@@ -178,7 +181,7 @@ start
 
 split
 {	
-	if (version != "" && settings["autoSplitter"]) {
+	if (version != "") {
 		uint numCurrentActiveMissions = current.activeMissions >> 0xe;
 		uint numOldActiveMissions = old.activeMissions >> 0xe;
 
@@ -186,24 +189,28 @@ split
 		if (old.level != current.level) {
 			vars.prevLevel = old.level;
 		}
+
+		if (settings["split_any"]) {
+			// Splitting based on level change,
+			// disabled for cooking minigames in Desserted Kitchen and when entering Paris Streets
+			if (old.level != 3 && old.level != 14 && old.level != 17 && old.level != 19 && old.level != 23) {
+				if (current.level != old.level) return true;
+			}
+
+			// Splitting based on active mission count (After completing a mission in Desserted Kitchen count goes back to 7).
+			// This spliting is disabled if previous level was 12 to prevent double splitting (It already splits when changing from 12 to 23).
+			// Also disabled in case the last level was 12, 14, 17 or 19 (DK Cake, DK Soup, DK Mixer and DK Salad) to prevent accidental splits.
+			if (current.level == 23 && vars.prevLevel != 12 && vars.prevLevel != 14 && vars.prevLevel != 17 && vars.prevLevel != 19) {
+				if (numCurrentActiveMissions < numOldActiveMissions) {
+					if  (numCurrentActiveMissions == 7) return true;
+				}
+			}
+		}
 		
-		// Last Split, mission count goes to 1 after reaching the final cutscene trigger
-		if (current.level == 24 && (numCurrentActiveMissions < numOldActiveMissions)) {
-			return true;
-		}
-
-		// Splitting based on level change,
-		// disabled for cooking minigames in Desserted Kitchen and when entering Paris Streets
-		if (old.level != 3 && old.level != 14 && old.level != 17 && old.level != 19 && old.level != 23) {
-			return current.level != old.level;
-		}
-
-		// Splitting based on active mission count (After completing a mission in Desserted Kitchen count goes back to 7).
-		// This spliting is disabled if previous level was 12 to prevent double splitting (It already splits when changing from 12 to 23).
-		// Also disabled in case the last level was 12, 14, 17 or 19 (DK Cake, DK Soup, DK Mixer and DK Salad) to prevent accidental splits.
-		if (current.level == 23 && vars.prevLevel != 12 && vars.prevLevel != 14 && vars.prevLevel != 17 && vars.prevLevel != 19) {
-			if (numCurrentActiveMissions < numOldActiveMissions) {
-				return numCurrentActiveMissions == 7;
+		if (settings["split_end"]) {
+			// Last Split, mission count goes to 1 after reaching the final cutscene trigger
+			if (current.level == 24) {
+				if (numCurrentActiveMissions < numOldActiveMissions) return true;
 			}
 		}
 	}
