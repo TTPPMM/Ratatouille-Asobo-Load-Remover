@@ -11,3 +11,4 @@ Game versions currently supported:
 - Portuguese (Brazil)
 - Portuguese (Portugal) / Spanish
 - Scandinavian
+- ActionPack
