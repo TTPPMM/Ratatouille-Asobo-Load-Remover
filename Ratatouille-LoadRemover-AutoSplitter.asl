@@ -121,7 +121,7 @@ state("overlay_win2k", "ActionPack")
 startup
 {
 	// Auto-start
-    settings.Add("auto_start", true, "Auto-Start");
+    settings.Add("auto_start", false, "Auto-Start");
 	settings.Add("start_mb", false, "Somewhere in France", "auto_start");
 	settings.SetToolTip("start_mb", "Starts the timer automatically in the first frame of movement.");
 	settings.Add("start_pipemk", false, "The slide of your life", "auto_start");
@@ -130,21 +130,22 @@ startup
 	// settings.SetToolTip("start_pipekn", "Starts the timer automatically when entering the kitchen pipe from the extras menu.");
 	
     // Auto-split
-    settings.Add("auto_split", true, "Auto-Split");
+    settings.Add("auto_split", false, "Auto-Split");
     settings.Add("split_any", false, "Any%", "auto_split");
 	settings.SetToolTip("split_any", "Splits on all the common any% splits,\n except the split at the end of the chase.");
 	settings.Add("split_allDeaths", false, "All Deaths", "auto_split");
 	settings.SetToolTip("split_allDeaths", "Splits after each death.");
     
     // Auto-end
-    settings.Add("auto_end", true, "Auto-Stop");
+    settings.Add("auto_end", false, "Auto-Stop");
 	settings.Add("end_knchase", false, "Last Skinner chase", "auto_end");
 	settings.SetToolTip("end_knchase", "Splits at the end of the final chase.");
     settings.Add("end_bleach", false, "Drink Bleach And Die%", "auto_end");
-	settings.SetToolTip("end_bleach", "Ends the timer automatically when you've collected all bleaches and died as linguini.");
+	settings.SetToolTip("end_bleach", "Splits when you've collected all bleaches and died as linguini.");
 	settings.Add("end_death", false, "Death%", "auto_end");
-	settings.SetToolTip("end_death", "Ends the timer automatically when dying.");
-	settings.Add("end_amc", false, "All Main Collectibles", "auto_end");
+	settings.SetToolTip("end_death", "Splits when dying.");
+	
+	// settings.Add("end_amc", false, "All Main Collectibles", "auto_end"); - Not tested
     // settings.Add("end_allDeaths", false, "AllDeaths End");
     // settings.SetToolTip("end_allDeaths", "Splits when dying from dog.");
 }
@@ -283,9 +284,9 @@ split
                 }
             }
         }
-            if (settings["split_allDeaths"]) {
+            if (settings["split_allDeaths"] || settings["end_death"]) {
                 // Split if died from water
-                if (old.animState == 28 && current.animState == 134) {
+                if (old.animState != 134 && current.animState == 134) {
                     return true;
                 // Split if died from anything else
                 } else if (old.animState != 134) {
@@ -307,7 +308,7 @@ split
                     vars.bleachingTime = true;
                 }
                 // Return when dying from an enemy and bleachingTime is true
-				// Will split even if you're playing as remy!!!
+				// BUG: Will split even if you're playing as remy
                 return old.animState == 24 && current.animState == 145 && vars.bleachingTime;
             }
 
@@ -317,11 +318,6 @@ split
                     // Return when colony collection book goes away
                     return current.menuState == 13 && current.dialogType == 23;
                 }
-            }
-
-            if (settings["end_death"]) {
-                // Return when screen starts fading to black
-                return current.animState == 145;
             }
         }
 	}
