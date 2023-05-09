@@ -4,10 +4,10 @@ state("overlay", "USAPolish")
 	uint level : 0x003DE8A8, 0x8, 0x9C4, 0x7C;
 	uint activeMissions : 0x003DE8A8, 0x8, 0xAF4, 0x20;
 	float xPos : 0x003DCAA0;
-	byte paused : 0x003DE8B4, 0x4;
+	bool paused : 0x003DE8B4, 0x4;
 	byte menuState : 0x003CAF54, 0x12D8;
 	uint dialogType : 0x003CAF54, 0x12DC;
-	uint animState : 0x003C7C28, 0x0, 0x94, 0x598;
+	uint playerState : 0x003C7C28, 0x0, 0x94, 0x598;
 }
 
 state("overlay_win2k", "USAPolish")
@@ -16,10 +16,10 @@ state("overlay_win2k", "USAPolish")
 	uint level : 0x003DD8A8, 0x8, 0x9C4, 0x7C;
 	uint activeMissions : 0x003DD8A8, 0x8, 0xAF4, 0x20;
 	float xPos : 0x003DBAA0;
-	byte paused : 0x003DD8B4, 0x4;
+	bool paused : 0x003DD8B4, 0x4;
 	byte menuState : 0x003C9F54, 0x12D8;
 	uint dialogType : 0x003C9F54, 0x12DC;
-	uint animState : 0x003C6C28, 0x0, 0x94, 0x598;
+	uint playerState : 0x003C6C28, 0x0, 0x94, 0x598;
 }
 
 state("overlay", "Scandinavia")
@@ -28,10 +28,10 @@ state("overlay", "Scandinavia")
 	uint level : 0x003E2D50, 0x8, 0x9C4, 0x7C;
 	uint activeMissions : 0x003E2D50, 0x8, 0xAF4, 0x20;
 	float xPos : 0x003E0C40;
-	byte paused : 0x003E2D5C, 0x4;
+	bool paused : 0x003E2D5C, 0x4;
 	byte menuState : 0x003CF0F4, 0x12D8;
 	uint dialogType : 0x003CF0F4, 0x12DC;
-	uint animState : 0x003CBDC8, 0x0, 0x94, 0x598;
+	uint playerState : 0x003CBDC8, 0x0, 0x94, 0x598;
 }
 
 state("overlay_win2k", "Scandinavia")
@@ -40,10 +40,10 @@ state("overlay_win2k", "Scandinavia")
 	uint level : 0x003E2D50, 0x8, 0x9C4, 0x7C;
 	uint activeMissions : 0x003E2D50, 0x8, 0xAF4, 0x20;
 	float xPos : 0x003E0C40;
-	byte paused : 0x003E2D5C, 0x4;
+	bool paused : 0x003E2D5C, 0x4;
 	byte menuState : 0x003CF0F4, 0x12D8;
 	uint dialogType : 0x003CF0F4, 0x12DC;
-	uint animState : 0x003CBDC8, 0x0, 0x94, 0x598;
+	uint playerState : 0x003CBDC8, 0x0, 0x94, 0x598;
 }
 
 state("overlay", "Brazilian")
@@ -52,10 +52,10 @@ state("overlay", "Brazilian")
 	uint level : 0x003DFD28, 0x8, 0x9C4, 0x7C;
 	uint activeMissions : 0x003DFD28, 0x8, 0xAF4, 0x20;
 	float xPos : 0x003DDC60;
-	byte paused : 0x003DFD34, 0x4;
+	bool paused : 0x003DFD34, 0x4;
 	byte menuState : 0x003CC114, 0x12D8;
 	uint dialogType : 0x003CC114, 0x12DC;
-	uint animState : 0x003C8DE8, 0x0, 0x94, 0x598;
+	uint playerState : 0x003C8DE8, 0x0, 0x94, 0x598;
 }
 
 state("overlay_win2k", "Brazilian")
@@ -64,10 +64,10 @@ state("overlay_win2k", "Brazilian")
 	uint level : 0x003DED08, 0x8, 0x9C4, 0x7C;
 	uint activeMissions : 0x003DED08, 0x8, 0xAF4, 0x20;
 	float xPos : 0x003DCC40;
-	byte paused : 0x003DED14, 0x4;
+	bool paused : 0x003DED14, 0x4;
 	byte menuState : 0x003CB0F4, 0x12D8;
 	uint dialogType : 0x003CB0F4, 0x12DC;
-	uint animState : 0x003C7DC8, 0x0, 0x94, 0x598;
+	uint playerState : 0x003C7DC8, 0x0, 0x94, 0x598;
 }
 
 state("overlay", "DutchFrenchGermanPortugueseSpanish")
@@ -76,10 +76,10 @@ state("overlay", "DutchFrenchGermanPortugueseSpanish")
 	uint level : 0x003E2D08, 0x8, 0x9C4, 0x7C;
 	uint activeMissions : 0x003E2D08, 0x8, 0xAF4, 0x20;
 	float xPos : 0x003E0C40;
-	byte paused : 0x003E2D14, 0x4;
+	bool paused : 0x003E2D14, 0x4;
 	byte menuState : 0x003CF0F4, 0x12D8;
 	uint dialogType : 0x003CF0F4, 0x12DC;
-	uint animState : 0x003CBDC8, 0x0, 0x94, 0x598;
+	uint playerState : 0x003CBDC8, 0x0, 0x94, 0x598;
 }
 
 state("overlay_win2k", "DutchFrenchGermanPortugueseSpanish")
@@ -88,10 +88,10 @@ state("overlay_win2k", "DutchFrenchGermanPortugueseSpanish")
 	uint level : 0x003E2D08, 0x8, 0x9C4, 0x7C;
 	uint activeMissions : 0x003E2D08, 0x8, 0xAF4, 0x20;
 	float xPos : 0x003E0C40;
-	byte paused : 0x003E2D14, 0x4;
+	bool paused : 0x003E2D14, 0x4;
 	byte menuState : 0x003CF0F4, 0x12D8;
 	uint dialogType : 0x003CF0F4, 0x12DC;
-	uint animState : 0x003CBDC8, 0x0, 0x94, 0x598;
+	uint playerState : 0x003CBDC8, 0x0, 0x94, 0x598;
 }
 
 state("overlay", "ActionPack")
@@ -100,10 +100,10 @@ state("overlay", "ActionPack")
 	uint level : 0x003DF8A8, 0x8, 0x9C4, 0x7C;
 	uint activeMissions : 0x003DF8A8, 0x8, 0xAF4, 0x20;
 	float xPos : 0x003DDAA0;
-	byte paused : 0x003DF8B4, 0x4;
+	bool paused : 0x003DF8B4, 0x4;
 	byte menuState : 0x003CBF54, 0x12D8;
 	uint dialogType : 0x003CBF54, 0x12DC;
-	uint animState : 0x003C8C28, 0x0, 0x94, 0x598;
+	uint playerState : 0x003C8C28, 0x0, 0x94, 0x598;
 }
 
 state("overlay_win2k", "ActionPack")
@@ -112,42 +112,36 @@ state("overlay_win2k", "ActionPack")
 	uint level : 0x003DE8A8, 0x8, 0x9C4, 0x7C;
 	uint activeMissions : 0x003DE8A8, 0x8, 0xAF4, 0x20;
 	float xPos : 0x003DCAA0;
-	byte paused : 0x003DE8B4, 0x4;
+	bool paused : 0x003DE8B4, 0x4;
 	byte menuState : 0x003CAF54, 0x12D8;
 	uint dialogType : 0x003CAF54, 0x12DC;
-	uint animState : 0x003C7C28, 0x0, 0x94, 0x598;
+	uint playerState : 0x003C7C28, 0x0, 0x94, 0x598;
 }
 
 startup
 {
 	// Auto-start
-    settings.Add("auto_start", false, "Auto-Start");
+	settings.Add("auto_start", false, "Auto-Start");
 	settings.Add("start_mb", false, "Somewhere in France", "auto_start");
 	settings.SetToolTip("start_mb", "Starts the timer automatically in the first frame of movement.");
 	settings.Add("start_pipemk", false, "The slide of your life", "auto_start");
 	settings.SetToolTip("start_pipemk", "Starts the timer automatically when entering the slide of your life from the extras menu.");
-	// settings.Add("start_pipekn", false, "Kitchen pipe", "auto_start");
-	// settings.SetToolTip("start_pipekn", "Starts the timer automatically when entering the kitchen pipe from the extras menu.");
 	
-    // Auto-split
-    settings.Add("auto_split", false, "Auto-Split");
-    settings.Add("split_any", false, "Any%", "auto_split");
-	settings.SetToolTip("split_any", "Splits on all the common any% splits,\n except the split at the end of the chase.");
-	settings.Add("split_allDeaths", false, "All Deaths", "auto_split");
-	settings.SetToolTip("split_allDeaths", "Splits after each death.");
+	// Auto-split
+	settings.Add("auto_split", false, "Auto-Split");
+	settings.Add("split_any", false, "Levels and missions", "auto_split");
+	settings.SetToolTip("split_any", "Splits on level changes and completed missions.");
+	settings.Add("split_anyCollection", false, "Collection", "split_any");
+	settings.SetToolTip("split_anyCollection", "Splits after a collectible collection is completed.");
+	settings.Add("split_deaths", false, "Deaths", "auto_split");
+	settings.SetToolTip("split_deaths", "Splits when dying.");
     
-    // Auto-end
-    settings.Add("auto_end", false, "Auto-Stop");
+	// Auto-end
+	settings.Add("auto_end", false, "Auto-Stop");
 	settings.Add("end_knchase", false, "Last Skinner chase", "auto_end");
 	settings.SetToolTip("end_knchase", "Splits at the end of the final chase.");
-    settings.Add("end_bleach", false, "Drink Bleach And Die%", "auto_end");
-	settings.SetToolTip("end_bleach", "Splits when you've collected all bleaches and died as linguini.");
-	settings.Add("end_death", false, "Death%", "auto_end");
-	settings.SetToolTip("end_death", "Splits when dying.");
-	
-	// settings.Add("end_amc", false, "All Main Collectibles", "auto_end"); - Not tested
-    // settings.Add("end_allDeaths", false, "AllDeaths End");
-    // settings.SetToolTip("end_allDeaths", "Splits when dying from dog.");
+	settings.Add("end_amc", false, "All Main Collectibles", "auto_end");
+	settings.SetToolTip("end_amc", "Splits after collecting the last collectible in the sewer.");
 }
 
 init
@@ -233,7 +227,7 @@ start
                 // If old xpos is virtually the start position
                 if ((deltaStartPos > -0.00001) && (deltaStartPos < 0.00001)) {
                     // Return if game isn't paused and a textbox dialog was closed
-                    return (current.paused == 0 && old.menuState == 5 && old.dialogType == 7);
+                    return (!current.paused && old.menuState == 5 && old.dialogType == 7);
                 }
             }
         }
@@ -241,18 +235,12 @@ start
             // If current level is The slide of your life
             if (current.level == 46) {
                 // If remy goes from idle to sliding animation
-				// Prevents timer from starting after respawn
-                if (old.animState == 2 && current.animState == 76) {
+                if (old.playerState == 2 && current.playerState == 76) {
                     return current.xPos < -23.5 && current.xPos > -23.6;
                 }
             }
         }
     }
-}
-
-onStart
-{
-    vars.bleachingTime = false;
 }
 
 split
@@ -267,34 +255,79 @@ split
 		}
 
         if (settings["auto_split"]) {
-            if (settings["split_any"]) {
-                // Splitting based on level change,
-                // disabled for cooking minigames in Desserted Kitchen and when entering Paris Streets
-                if (old.level != 3 && old.level != 14 && old.level != 17 && old.level != 19 && old.level != 23) {
-                    if (current.level != old.level) return true;
-                }
+			if (settings["split_any"]) {
+				// Splitting based on level change
+				// Splits if old level is not current level and is not SW, CT, KD, MK, MG_CAKE, MG_SOUP, MG_SOUP2, MG_POTA, MG_MIXER, MG_PLATE, MG_PLATE2, MG_SARBA, MG_ALARM, MG_FEN, KN, KN_CHA, a Dream World or if going from main level to chase
+				if (old.level != current.level &&
+					old.level != 3 &&
+					old.level != 5 &&
+					old.level != 7 &&
+					old.level != 9 &&
+					old.level != 11 &&
+					old.level != 13 &&
+					old.level != 14 &&
+					old.level != 16 &&
+					old.level != 17 &&
+					old.level != 18 &&
+					old.level != 19 &&
+					old.level != 20 &&
+					old.level != 21 &&
+					old.level != 22 &&
+					old.level != 23 &&
+					old.level != 24 &&
+					old.level != 34 &&
+					old.level != 35 &&
+					old.level != 36 &&
+					old.level != 37 &&
+					old.level != 38 &&
+					old.level != 39 &&
+					old.level != 40 &&
+					old.level != 41 &&
+					old.level != 42 &&
+					old.level != 43 ||
+					(old.level == 5 && current.level == 6 || old.level == 7 && current.level == 8 || old.level == 9 && current.level == 10)) {
+						return true;
+				}
+				
+				// If current level is not MB, SW, PIPE_SW, PIPE_CT, PIPE_MK, PIPE_KN
+				if (current.level != 1 &&
+					current.level != 3 &&
+					current.level != 44 &&
+					current.level != 45 &&
+					current.level != 46 &&
+					current.level != 47) {
+					// Splits if mission complete book closes
+					if (current.dialogType == 3 && old.menuState == 5 && current.menuState == 13) {
+						return true;
+					}
+				}
 
-                // Splitting based on active mission count (After completing a mission in Desserted Kitchen count goes back to 7).
-                // This spliting is disabled if previous level was 12 to prevent double splitting (It already splits when changing from 12 to 23).
-                // Also disabled in case the last level was 12, 14, 17 or 19 (DK Cake, DK Soup, DK Mixer and DK Salad) to prevent accidental splits.
-                if (current.level == 23 && vars.prevLevel != 12 && vars.prevLevel != 14 && vars.prevLevel != 17 && vars.prevLevel != 19) {
-                    if (numCurrentActiveMissions < numOldActiveMissions) {
-                        if  (numCurrentActiveMissions == 7) return true;
-                    }
-                }
-            }
-        }
-            if (settings["split_allDeaths"] || settings["end_death"]) {
-                // Split if died from water
-                if (old.animState != 134 && current.animState == 134) {
-                    return true;
-                // Split if died from anything else
-                } else if (old.animState != 134) {
-                    return old.animState != 145 && current.animState == 145;
-                }
+				// Bone Sequence Break
+				// Splits if current level is 5, holding bone and mission count goes from 10 to 9
+				if (current.level == 5) {
+					if (current.playerState == 50 || current.playerState == 51) {
+						return numOldActiveMissions == 10 && numCurrentActiveMissions == 9;
+					}
+				}
+				
+				// Splits after a colony collection gets completed
+				if (settings["split_anyCollection"]) {
+					if (current.dialogType == 23 && old.menuState == 5 && current.menuState == 13) {
+						return true;
+					}
+				}
+			}
+			
+			if (settings["split_deaths"]) {
+            	// Splits if died from water
+            	if (old.playerState != 134 && current.playerState == 134) {
+                	return true;
+            	// Splits if died from anything else
+            	} else {return old.playerState != 134 && old.playerState != 145 && current.playerState == 145;}
+			}
 		}
 		
-         if (settings["auto_end"]) {
+        if (settings["auto_end"]) {
             if (settings["end_knchase"]) {
                 // Last Split, mission count goes to 1 after reaching the final cutscene trigger
                 if (current.level == 24) {
@@ -302,23 +335,11 @@ split
                 }
             }
 
-            if (settings["end_bleach"]) {
-                // If level is LCBK and all bleaches book pops up
-                if (current.level == 7 && current.dialogType == 23) {
-                    vars.bleachingTime = true;
-                }
-                // Return when dying from an enemy and bleachingTime is true
-				// BUG: Will split even if you're playing as remy
-                return old.animState == 24 && current.animState == 145 && vars.bleachingTime;
-            }
-
-            if (settings["end_amc"]) {
-                // If level is Home stink home
-                if (current.level == 3) {
-                    // Return when colony collection book goes away
-                    return current.menuState == 13 && current.dialogType == 23;
-                }
-            }
+			if (settings["end_amc"]) {
+				if (current.level == 3) {
+					return current.dialogType == 23 && old.menuState == 0 && current.menuState == 1;
+				}
+			}
         }
 	}
 }
