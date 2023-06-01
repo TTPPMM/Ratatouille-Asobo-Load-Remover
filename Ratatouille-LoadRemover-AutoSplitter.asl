@@ -1,153 +1,280 @@
-state("overlay", "USAPolish")
+state("overlay", "USAPolishDemo")
 {
-	float load : 0x003DE8A8, 0x8, 0x9D4, 0x5C;
-	uint level : 0x003DE8A8, 0x8, 0x9C4, 0x7C;
-	uint activeMissions : 0x003DE8A8, 0x8, 0xAF4, 0x20;
-	float xPos : 0x003DCAA0;
-	bool paused : 0x003DE8B4, 0x4;
-	byte menuState : 0x003CAF54, 0x12D8;
-	uint dialogType : 0x003CAF54, 0x12DC;
-	uint playerState : 0x003C7C28, 0x0, 0x94, 0x598;
+    float load : 0x003DE8A8, 0x8, 0x9D4, 0x5C;
+    uint level : 0x003DE8A8, 0x8, 0x9C4, 0x7C;
+    uint activeMissions : 0x003DE8A8, 0x8, 0xAF4, 0x20;
+    float xPos : 0x003DCAA0;
+    bool paused : 0x003DE8B4, 0x4;
+    byte menuState : 0x003CAF54, 0x12D8;
+    uint dialogType : 0x003CAF54, 0x12DC;
+    uint playerState : 0x003C7C28, 0x0, 0x94, 0x598;
 }
 
-state("overlay_win2k", "USAPolish")
+state("overlay_win2k", "USAPolishDemo")
 {
-	float load : 0x003DD8A8, 0x8, 0x9D4, 0x5C;
-	uint level : 0x003DD8A8, 0x8, 0x9C4, 0x7C;
-	uint activeMissions : 0x003DD8A8, 0x8, 0xAF4, 0x20;
-	float xPos : 0x003DBAA0;
-	bool paused : 0x003DD8B4, 0x4;
-	byte menuState : 0x003C9F54, 0x12D8;
-	uint dialogType : 0x003C9F54, 0x12DC;
-	uint playerState : 0x003C6C28, 0x0, 0x94, 0x598;
+    float load : 0x003DD8A8, 0x8, 0x9D4, 0x5C;
+    uint level : 0x003DD8A8, 0x8, 0x9C4, 0x7C;
+    uint activeMissions : 0x003DD8A8, 0x8, 0xAF4, 0x20;
+    float xPos : 0x003DBAA0;
+    bool paused : 0x003DD8B4, 0x4;
+    byte menuState : 0x003C9F54, 0x12D8;
+    uint dialogType : 0x003C9F54, 0x12DC;
+    uint playerState : 0x003C6C28, 0x0, 0x94, 0x598;
 }
 
 state("overlay", "Scandinavia")
 {
-	float load : 0x003E2D50, 0x8, 0x9D4, 0x5C;
-	uint level : 0x003E2D50, 0x8, 0x9C4, 0x7C;
-	uint activeMissions : 0x003E2D50, 0x8, 0xAF4, 0x20;
-	float xPos : 0x003E0C40;
-	bool paused : 0x003E2D5C, 0x4;
-	byte menuState : 0x003CF0F4, 0x12D8;
-	uint dialogType : 0x003CF0F4, 0x12DC;
-	uint playerState : 0x003CBDC8, 0x0, 0x94, 0x598;
+    float load : 0x003E2D50, 0x8, 0x9D4, 0x5C;
+    uint level : 0x003E2D50, 0x8, 0x9C4, 0x7C;
+    uint activeMissions : 0x003E2D50, 0x8, 0xAF4, 0x20;
+    float xPos : 0x003E0C40;
+    bool paused : 0x003E2D5C, 0x4;
+    byte menuState : 0x003CF0F4, 0x12D8;
+    uint dialogType : 0x003CF0F4, 0x12DC;
+    uint playerState : 0x003CBDC8, 0x0, 0x94, 0x598;
 }
 
 state("overlay_win2k", "Scandinavia")
 {
-	float load : 0x003E2D50, 0x8, 0x9D4, 0x5C;
-	uint level : 0x003E2D50, 0x8, 0x9C4, 0x7C;
-	uint activeMissions : 0x003E2D50, 0x8, 0xAF4, 0x20;
-	float xPos : 0x003E0C40;
-	bool paused : 0x003E2D5C, 0x4;
-	byte menuState : 0x003CF0F4, 0x12D8;
-	uint dialogType : 0x003CF0F4, 0x12DC;
-	uint playerState : 0x003CBDC8, 0x0, 0x94, 0x598;
+    float load : 0x003E2D50, 0x8, 0x9D4, 0x5C;
+    uint level : 0x003E2D50, 0x8, 0x9C4, 0x7C;
+    uint activeMissions : 0x003E2D50, 0x8, 0xAF4, 0x20;
+    float xPos : 0x003E0C40;
+    bool paused : 0x003E2D5C, 0x4;
+    byte menuState : 0x003CF0F4, 0x12D8;
+    uint dialogType : 0x003CF0F4, 0x12DC;
+    uint playerState : 0x003CBDC8, 0x0, 0x94, 0x598;
 }
 
 state("overlay", "Brazilian")
 {
-	float load : 0x003DFD28, 0x8, 0x9D4, 0x5C;
-	uint level : 0x003DFD28, 0x8, 0x9C4, 0x7C;
-	uint activeMissions : 0x003DFD28, 0x8, 0xAF4, 0x20;
-	float xPos : 0x003DDC60;
-	bool paused : 0x003DFD34, 0x4;
-	byte menuState : 0x003CC114, 0x12D8;
-	uint dialogType : 0x003CC114, 0x12DC;
-	uint playerState : 0x003C8DE8, 0x0, 0x94, 0x598;
+    float load : 0x003DFD28, 0x8, 0x9D4, 0x5C;
+    uint level : 0x003DFD28, 0x8, 0x9C4, 0x7C;
+    uint activeMissions : 0x003DFD28, 0x8, 0xAF4, 0x20;
+    float xPos : 0x003DDC60;
+    bool paused : 0x003DFD34, 0x4;
+    byte menuState : 0x003CC114, 0x12D8;
+    uint dialogType : 0x003CC114, 0x12DC;
+    uint playerState : 0x003C8DE8, 0x0, 0x94, 0x598;
 }
 
 state("overlay_win2k", "Brazilian")
 {
-	float load : 0x003DED08, 0x8, 0x9D4, 0x5C;
-	uint level : 0x003DED08, 0x8, 0x9C4, 0x7C;
-	uint activeMissions : 0x003DED08, 0x8, 0xAF4, 0x20;
-	float xPos : 0x003DCC40;
-	bool paused : 0x003DED14, 0x4;
-	byte menuState : 0x003CB0F4, 0x12D8;
-	uint dialogType : 0x003CB0F4, 0x12DC;
-	uint playerState : 0x003C7DC8, 0x0, 0x94, 0x598;
+    float load : 0x003DED08, 0x8, 0x9D4, 0x5C;
+    uint level : 0x003DED08, 0x8, 0x9C4, 0x7C;
+    uint activeMissions : 0x003DED08, 0x8, 0xAF4, 0x20;
+    float xPos : 0x003DCC40;
+    bool paused : 0x003DED14, 0x4;
+    byte menuState : 0x003CB0F4, 0x12D8;
+    uint dialogType : 0x003CB0F4, 0x12DC;
+    uint playerState : 0x003C7DC8, 0x0, 0x94, 0x598;
 }
 
 state("overlay", "DutchFrenchGermanPortugueseSpanish")
 {
-	float load : 0x003E2D08, 0x8, 0x9D4, 0x5C;
-	uint level : 0x003E2D08, 0x8, 0x9C4, 0x7C;
-	uint activeMissions : 0x003E2D08, 0x8, 0xAF4, 0x20;
-	float xPos : 0x003E0C40;
-	bool paused : 0x003E2D14, 0x4;
-	byte menuState : 0x003CF0F4, 0x12D8;
-	uint dialogType : 0x003CF0F4, 0x12DC;
-	uint playerState : 0x003CBDC8, 0x0, 0x94, 0x598;
+    float load : 0x003E2D08, 0x8, 0x9D4, 0x5C;
+    uint level : 0x003E2D08, 0x8, 0x9C4, 0x7C;
+    uint activeMissions : 0x003E2D08, 0x8, 0xAF4, 0x20;
+    float xPos : 0x003E0C40;
+    bool paused : 0x003E2D14, 0x4;
+    byte menuState : 0x003CF0F4, 0x12D8;
+    uint dialogType : 0x003CF0F4, 0x12DC;
+    uint playerState : 0x003CBDC8, 0x0, 0x94, 0x598;
 }
 
 state("overlay_win2k", "DutchFrenchGermanPortugueseSpanish")
 {
-	float load : 0x003E2D08, 0x8, 0x9D4, 0x5C;
-	uint level : 0x003E2D08, 0x8, 0x9C4, 0x7C;
-	uint activeMissions : 0x003E2D08, 0x8, 0xAF4, 0x20;
-	float xPos : 0x003E0C40;
-	bool paused : 0x003E2D14, 0x4;
-	byte menuState : 0x003CF0F4, 0x12D8;
-	uint dialogType : 0x003CF0F4, 0x12DC;
-	uint playerState : 0x003CBDC8, 0x0, 0x94, 0x598;
+    float load : 0x003E2D08, 0x8, 0x9D4, 0x5C;
+    uint level : 0x003E2D08, 0x8, 0x9C4, 0x7C;
+    uint activeMissions : 0x003E2D08, 0x8, 0xAF4, 0x20;
+    float xPos : 0x003E0C40;
+    bool paused : 0x003E2D14, 0x4;
+    byte menuState : 0x003CF0F4, 0x12D8;
+    uint dialogType : 0x003CF0F4, 0x12DC;
+    uint playerState : 0x003CBDC8, 0x0, 0x94, 0x598;
 }
 
 state("overlay", "ActionPack")
 {
-	float load : 0x003DF8A8, 0x8, 0x9D4, 0x5C;
-	uint level : 0x003DF8A8, 0x8, 0x9C4, 0x7C;
-	uint activeMissions : 0x003DF8A8, 0x8, 0xAF4, 0x20;
-	float xPos : 0x003DDAA0;
-	bool paused : 0x003DF8B4, 0x4;
-	byte menuState : 0x003CBF54, 0x12D8;
-	uint dialogType : 0x003CBF54, 0x12DC;
-	uint playerState : 0x003C8C28, 0x0, 0x94, 0x598;
+    float load : 0x003DF8A8, 0x8, 0x9D4, 0x5C;
+    uint level : 0x003DF8A8, 0x8, 0x9C4, 0x7C;
+    uint activeMissions : 0x003DF8A8, 0x8, 0xAF4, 0x20;
+    float xPos : 0x003DDAA0;
+    bool paused : 0x003DF8B4, 0x4;
+    byte menuState : 0x003CBF54, 0x12D8;
+    uint dialogType : 0x003CBF54, 0x12DC;
+    uint playerState : 0x003C8C28, 0x0, 0x94, 0x598;
 }
 
 state("overlay_win2k", "ActionPack")
 {
-	float load : 0x003DE8A8, 0x8, 0x9D4, 0x5C;
-	uint level : 0x003DE8A8, 0x8, 0x9C4, 0x7C;
-	uint activeMissions : 0x003DE8A8, 0x8, 0xAF4, 0x20;
-	float xPos : 0x003DCAA0;
-	bool paused : 0x003DE8B4, 0x4;
-	byte menuState : 0x003CAF54, 0x12D8;
-	uint dialogType : 0x003CAF54, 0x12DC;
-	uint playerState : 0x003C7C28, 0x0, 0x94, 0x598;
+    float load : 0x003DE8A8, 0x8, 0x9D4, 0x5C;
+    uint level : 0x003DE8A8, 0x8, 0x9C4, 0x7C;
+    uint activeMissions : 0x003DE8A8, 0x8, 0xAF4, 0x20;
+    float xPos : 0x003DCAA0;
+    bool paused : 0x003DE8B4, 0x4;
+    byte menuState : 0x003CAF54, 0x12D8;
+    uint dialogType : 0x003CAF54, 0x12DC;
+    uint playerState : 0x003C7C28, 0x0, 0x94, 0x598;
 }
 
 startup
 {
-	// Auto-start
-	settings.Add("auto_start", false, "Auto-Start");
-	settings.Add("start_mb", false, "Somewhere in France", "auto_start");
-	settings.SetToolTip("start_mb", "Starts the timer automatically in the first frame of movement.");
-	settings.Add("start_pipemk", false, "The slide of your life", "auto_start");
-	settings.SetToolTip("start_pipemk", "Starts the timer automatically when entering the slide of your life from the extras menu.");
-	
-	// Auto-split
-	settings.Add("auto_split", false, "Auto-Split");
-	settings.Add("split_any", false, "Levels and missions", "auto_split");
-	settings.SetToolTip("split_any", "Splits on level changes and completed missions.");
-	settings.Add("split_anyCollection", false, "Collection", "split_any");
-	settings.SetToolTip("split_anyCollection", "Splits after a collectible collection is completed.");
-	settings.Add("split_deaths", false, "Deaths", "auto_split");
-	settings.SetToolTip("split_deaths", "Splits when dying.");
-    
-	// Auto-end
-	settings.Add("auto_end", false, "Auto-Stop");
-	settings.Add("end_knchase", false, "Last Skinner chase", "auto_end");
-	settings.SetToolTip("end_knchase", "Splits at the end of the final chase.");
-	settings.Add("end_amc", false, "All Main Collectibles", "auto_end");
-	settings.SetToolTip("end_amc", "Splits after collecting the last collectible in the sewer.");
+    var levelList = new Dictionary<uint, string> {
+        { 1, "Somewhere in France" },
+        { 2, "Destiny River" },
+        { 3, "Home Stink Home" },
+        { 4, "Paris Streets" },
+        { 5, "The City of Lights" },
+        { 6, "How'd You Make That?" },
+        { 7, "Little Chef - Big Kitchen" },
+        { 8, "Chop Chop Chase" },
+        { 9, "The City Market" },
+        { 10, "Harried Grocery Havoc" },
+        { 11, "Cake & Bake" },
+        { 12, "This Ain't no Cakewalk" },
+        { 13, "Soup, Line, and Sinker" },
+        { 14, "Ratatouille" },
+        { 15, "Soupy Assistance" },
+        { 16, "Peeling Potatoes" },
+        { 17, "Appetite for Appetizers" },
+        { 18, "Salad Ballad" },
+        { 19, "Stacking for a Salad" },
+        { 20, "Take Aim and Blow" },
+        { 21, "Sound the Alarm!" },
+        { 22, "Shocking Starter" },
+        { 23, "The Desserted Kitchen" },
+        { 24, "Was the Food That Bad?" },
+        { 25, "Fishing for treasures" },
+        { 26, "Food Fishing" },
+        { 27, "Lean, Mean, Dishwashing Machine" },
+        { 28, "Spick & Span Pumpkins" },
+        { 29, "Wait for the Crepe" },
+        { 30, "Rat Race" },
+        { 31, "Closet Collection" },
+        { 32, "Last Rat Standing" },
+        { 33, "Tightrope Chaos" },
+        { 34, "That's a Loot of Fruit" },
+        { 35, "This is a Steakout!" },
+        { 36, "Say Cheese!" },
+        { 37, "Dirty Dish Fright" },
+        { 38, "Pasta Persuasion" },
+        { 39, "Desserted Wonderland" },
+        { 40, "Veggie Vault" },
+        { 41, "Soaring Strawberries" },
+        { 42, "Kitchen Chaos" },
+        { 43, "Sausage Shenanigan" },
+        { 44, "Underground Fun" },
+        { 45, "Leaky Pipes" },
+        { 46, "The Slide of Your Life" },
+        { 47, "Kitchen Pipe" },
+        { 48, "Oh Smelly Water" },
+        { 49, "Test_Mar" },
+        { 50, "Test_Connex" },
+        { 51, "Test_Nico" },
+        { 52, "Test_Julien" }
+        };
+
+    // Auto-start
+    settings.Add("auto_start", true, "Auto-Start");
+    settings.Add("start_mb", true, "Somewhere in France", "auto_start");
+    settings.SetToolTip("start_mb", "Starts the timer automatically in the first frame of movement");
+    settings.Add("start_pipemk", false, "The slide of your life", "auto_start");
+    settings.SetToolTip("start_pipemk", "Starts the timer automatically when entering the slide of your life from the extras menu");
+
+    // Auto-split
+    settings.Add("auto_split", true, "Auto-Split");
+    settings.Add("split_levels", true, "Levels", "auto_split");
+    settings.SetToolTip("split_levels", "Splits on level changes");
+    settings.Add("split_missions", true, "Missions", "auto_split");
+    settings.SetToolTip("split_missions", "Splits when completing a mission");
+    settings.Add("split_anyCollection", false, "Collection", "auto_split");
+    settings.SetToolTip("split_anyCollection", "Splits after a collectible collection is completed");
+    settings.Add("split_deaths", false, "Deaths", "auto_split");
+    settings.SetToolTip("split_deaths", "Splits when dying");
+
+    // Auto-end
+    settings.Add("auto_end", true, "Auto-Stop");
+    settings.Add("end_knchase", true, "Last Skinner chase", "auto_end");
+    settings.SetToolTip("end_knchase", "Splits at the end of the final chase");
+    settings.Add("end_amc", false, "All Main Collectibles", "auto_end");
+    settings.SetToolTip("end_amc", "Splits after collecting the last collectible in the sewer");
+
+    uint[] exclduedLevelsFromSettings = { 25, 26, 27, 28, 29, 49, 50, 51, 52 };
+    uint[] enabledLevels = { 2, 3, 5, 6, 7, 8, 9, 10, 15, 23, 24, 44, 45, 46, 47 };
+    uint[] missionLevels = { 1, 3, 5, 7, 9, 23, 44, 45, 46, 47 };
+    uint[] enabledMissionLevels = { 5, 7, 9, 23 };
+    uint[] collectibleLevels = { 3, 5, 7, 9, 23, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48 };
+    uint[] excludedDeathLevels = { 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 25, 26, 27, 28, 29 };
+    uint[] toolTip = { 3, 5, 7, 9, 23 };
+
+    foreach (var level in levelList)
+    {
+        if (!Array.Exists(exclduedLevelsFromSettings, key => key == level.Key))
+        {
+            settings.Add("splitLevel"+level.Key.ToString(), Array.Exists(enabledLevels, key => key == level.Key), level.Value, "split_levels");
+            if (Array.Exists(toolTip, key => key == level.Key)) {
+                settings.SetToolTip("splitLevel"+level.Key.ToString(), "Split when entering this level from");
+            }
+
+            if (Array.Exists(missionLevels, key => key == level.Key)) {
+                settings.Add("splitMission"+level.Key.ToString(), Array.Exists(enabledMissionLevels, key => key == level.Key), level.Value, "split_missions");
+            }
+
+            if (Array.Exists(collectibleLevels, key => key == level.Key)) {
+                settings.Add("splitCollectible"+level.Key.ToString(), true, level.Value, "split_anyCollection");
+            }
+
+            if (!Array.Exists(excludedDeathLevels, key => key == level.Key)) {
+                settings.Add("splitDeath"+level.Key.ToString(), true, level.Value, "split_deaths");
+            }
+        }
+    }
+
+    uint[] fromLevelToSW = { 2, 5, 7, 9, 23, 44, 45, 46, 47, 48 };
+    uint[] enabledLevelsToSW = { 2, 44, 45, 46, 47, 48 };
+    uint[] fromLevelToCT = { 3, 34, 35, 36, 45 };
+    uint[] enabledLevelsToCT = { 34, 35, 36, 45 };
+    uint[] fromLevelToKD = { 3, 37, 44 };
+    uint[] enabledLevelsToKD = { 37, 44 };
+    uint[] fromLevelToMK = { 3, 38, 39, 40, 46 };
+    uint[] enabledLevelsToMK = { 38, 39, 40, 46 };
+    uint[] fromLevelToKN = { 3, 41, 42, 43, 47 };
+    uint[] enabledLevelsToKN = { 41, 42, 43, 47 };
+
+    // Add Sub-Splits to main levels
+    foreach (var level in levelList)
+    {
+        if (Array.Exists(fromLevelToSW, key => key == level.Key))
+        {
+            settings.Add(level.Key+"to3", Array.Exists(enabledLevelsToSW, key => key == level.Key), level.Value, "splitLevel3");
+        }
+        if (Array.Exists(fromLevelToCT, key => key == level.Key))
+        {
+            settings.Add(level.Key+"to5", Array.Exists(enabledLevelsToCT, key => key == level.Key), level.Value, "splitLevel5");
+        }
+        if (Array.Exists(fromLevelToKD, key => key == level.Key))
+        {
+            settings.Add(level.Key+"to7", Array.Exists(enabledLevelsToKD, key => key == level.Key), level.Value, "splitLevel7");
+        }
+        if (Array.Exists(fromLevelToMK, key => key == level.Key))
+        {
+            settings.Add(level.Key+"to9", Array.Exists(enabledLevelsToMK, key => key == level.Key), level.Value, "splitLevel9");
+        }
+        if (Array.Exists(fromLevelToKN, key => key == level.Key))
+        {
+            settings.Add(level.Key+"to23", Array.Exists(enabledLevelsToKN, key => key == level.Key), level.Value, "splitLevel23");
+        }
+    }
+    refreshRate = 160;
 }
 
 init
 {
 	const String headerUS = "32-4B-40-97-76-2A-2E-C4-76-2A-2E-C4-76-2A-2E-C4-E1-EE-50-C4-72-2A-2E-C4-51-EC-53-C4-41-2A-2E-C4-51-EC-43-C4-C7-2A-2E-C4-73-26-73-C4-74-2A-2E-C4-AC-09-32-C4-77-2A-2E-C4-B5-25-71-C4-75-2A-2E-C4-B5-25-4E-C4-74-2A-2E-C4-B5-25-73-C4-7E-2A-2E-C4-51-EC-55-C4-6F-2A-2E-C4-76-2A-2F-C4-86-2A-2E-C4-51-EC-40-C4-CB-28-2E-C4-51-EC-54-C4-77-2A-2E-C4-51-EC-52-C4-77-2A-2E-C4-76-2A-2E-C4-73-2A-2E-C4-51-EC-56-C4-77-2A-2E-C4-52-69-63-68-76-2A-2E-C4-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-50-45-00-00-4C-01-05-00-02-80-4D-46-00-00-00-00-00-00-00-00-E0-00-02-01-0B-01-08-00-00-70-30-00-00-A0-11-00-00-00-00-00-DC-81-2B-00-00-10-00-00-00-80-30-00-00-00-40-00-00-10-00-00-00-10-00-00-04-00-00-00-00-00-00-00-04-00-00-00-00-00-00-00-00-E0-45-00-00-10-00-00-71-50-42-00-02-00-00-00-00-00-10-00-00-10-00-00-00-00-10-00-00-10-00-00-00-00-00-00-10-00-00-00-90-7C-3B-00-4F-02-00-00-2C-65-3B-00-7C-01-00-00-00-20-40-00-70-4C-02-00-00-00-00-00-00-00-00-00-00-20-42-00-20-16-00-00-00-70-42-00-FC-55-03-00-A0-A4-30-00-1C-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-80-30-00-0C-04-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-2E-74-65-78-74-00-00-00-1A-61-30-00-00-10-00-00-00-70-30-00-00-10-00-00-00-00-00-00-00-00-00-00-00-00-00-00-20-00-00-60-2E-72-64-61-74-61-00-00-DF-FE-0A-00-00-80-30-00-00-00-0B-00-00-80-30-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-40-2E-64-61-74-61-00-00-00-48-9D-04-00-00-80-3B-00-00-E0-00-00-00-80-3B-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-C0-2E-72-73-72-63-00-00-00-70-4C-02-00-00-20-40-00-00-50-02-00-00-60-3C-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-40-2E-72-65-6C-6F-63-00-00-C8-61-03-00-00-70-42-00-00-70-03-00-00-B0-3E-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-42-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00";
 	const String headerUSwin2k = "71-39-0C-AD-35-58-62-FE-35-58-62-FE-35-58-62-FE-A2-9C-1C-FE-31-58-62-FE-12-9E-1F-FE-02-58-62-FE-12-9E-0F-FE-84-58-62-FE-30-54-3F-FE-37-58-62-FE-EF-7B-7E-FE-34-58-62-FE-F6-57-3D-FE-36-58-62-FE-F6-57-3F-FE-33-58-62-FE-F6-57-02-FE-37-58-62-FE-12-9E-19-FE-2C-58-62-FE-35-58-63-FE-DA-58-62-FE-12-9E-0C-FE-88-5A-62-FE-12-9E-18-FE-34-58-62-FE-12-9E-1E-FE-34-58-62-FE-35-58-62-FE-30-58-62-FE-12-9E-1A-FE-34-58-62-FE-52-69-63-68-35-58-62-FE-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-50-45-00-00-4C-01-05-00-35-82-4D-46-00-00-00-00-00-00-00-00-E0-00-02-01-0B-01-08-00-00-60-30-00-00-A0-11-00-00-00-00-00-AC-79-2B-00-00-10-00-00-00-70-30-00-00-00-40-00-00-10-00-00-00-10-00-00-04-00-00-00-00-00-00-00-04-00-00-00-00-00-00-00-00-D0-45-00-00-10-00-00-50-A8-42-00-02-00-00-00-00-00-10-00-00-10-00-00-00-00-10-00-00-10-00-00-00-00-00-00-10-00-00-00-20-6C-3B-00-55-02-00-00-E4-54-3B-00-68-01-00-00-00-10-40-00-70-4C-02-00-00-00-00-00-00-00-00-00-00-10-42-00-20-16-00-00-00-60-42-00-6C-55-03-00-90-94-30-00-1C-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-70-30-00-04-04-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-2E-74-65-78-74-00-00-00-0A-59-30-00-00-10-00-00-00-60-30-00-00-10-00-00-00-00-00-00-00-00-00-00-00-00-00-00-20-00-00-60-2E-72-64-61-74-61-00-00-75-FE-0A-00-00-70-30-00-00-00-0B-00-00-70-30-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-40-2E-64-61-74-61-00-00-00-48-9D-04-00-00-70-3B-00-00-E0-00-00-00-70-3B-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-C0-2E-72-73-72-63-00-00-00-70-4C-02-00-00-10-40-00-00-50-02-00-00-50-3C-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-40-2E-72-65-6C-6F-63-00-00-26-61-03-00-00-60-42-00-00-70-03-00-00-A0-3E-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-42-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00";
+    const String headerDemo = "32-4B-40-97-76-2A-2E-C4-76-2A-2E-C4-76-2A-2E-C4-E1-EE-50-C4-72-2A-2E-C4-51-EC-53-C4-41-2A-2E-C4-51-EC-43-C4-C7-2A-2E-C4-73-26-73-C4-74-2A-2E-C4-AC-09-32-C4-77-2A-2E-C4-B5-25-71-C4-75-2A-2E-C4-B5-25-4E-C4-74-2A-2E-C4-B5-25-73-C4-7E-2A-2E-C4-51-EC-55-C4-6F-2A-2E-C4-76-2A-2F-C4-86-2A-2E-C4-51-EC-40-C4-CB-28-2E-C4-51-EC-54-C4-77-2A-2E-C4-51-EC-52-C4-77-2A-2E-C4-76-2A-2E-C4-73-2A-2E-C4-51-EC-56-C4-77-2A-2E-C4-52-69-63-68-76-2A-2E-C4-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-50-45-00-00-4C-01-05-00-A5-32-5D-46-00-00-00-00-00-00-00-00-E0-00-02-01-0B-01-08-00-00-70-30-00-00-A0-11-00-00-00-00-00-5C-81-2B-00-00-10-00-00-00-80-30-00-00-00-40-00-00-10-00-00-00-10-00-00-04-00-00-00-00-00-00-00-04-00-00-00-00-00-00-00-00-E0-45-00-00-10-00-00-4B-74-42-00-02-00-00-00-00-00-10-00-00-10-00-00-00-00-10-00-00-10-00-00-00-00-00-00-10-00-00-00-10-79-3B-00-4F-02-00-00-AC-61-3B-00-7C-01-00-00-00-20-40-00-84-4C-02-00-00-00-00-00-00-00-00-00-00-20-42-00-20-16-00-00-00-70-42-00-44-56-03-00-A0-A4-30-00-1C-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-80-30-00-0C-04-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-2E-74-65-78-74-00-00-00-9A-60-30-00-00-10-00-00-00-70-30-00-00-10-00-00-00-00-00-00-00-00-00-00-00-00-00-00-20-00-00-60-2E-72-64-61-74-61-00-00-5F-FB-0A-00-00-80-30-00-00-00-0B-00-00-80-30-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-40-2E-64-61-74-61-00-00-00-48-9D-04-00-00-80-3B-00-00-E0-00-00-00-80-3B-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-C0-2E-72-73-72-63-00-00-00-84-4C-02-00-00-20-40-00-00-50-02-00-00-60-3C-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-40-2E-72-65-6C-6F-63-00-00-DC-61-03-00-00-70-42-00-00-70-03-00-00-B0-3E-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-42-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00";
+    const String headerDemowin2k = "71-39-0C-AD-35-58-62-FE-35-58-62-FE-35-58-62-FE-A2-9C-1C-FE-31-58-62-FE-12-9E-1F-FE-02-58-62-FE-12-9E-0F-FE-84-58-62-FE-30-54-3F-FE-37-58-62-FE-EF-7B-7E-FE-34-58-62-FE-F6-57-3D-FE-36-58-62-FE-F6-57-3F-FE-33-58-62-FE-F6-57-02-FE-37-58-62-FE-12-9E-19-FE-2C-58-62-FE-35-58-63-FE-DA-58-62-FE-12-9E-0C-FE-88-5A-62-FE-12-9E-18-FE-34-58-62-FE-12-9E-1E-FE-34-58-62-FE-35-58-62-FE-30-58-62-FE-12-9E-1A-FE-34-58-62-FE-52-69-63-68-35-58-62-FE-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-50-45-00-00-4C-01-05-00-78-33-5D-46-00-00-00-00-00-00-00-00-E0-00-02-01-0B-01-08-00-00-60-30-00-00-A0-11-00-00-00-00-00-2C-79-2B-00-00-10-00-00-00-70-30-00-00-00-40-00-00-10-00-00-00-10-00-00-04-00-00-00-00-00-00-00-04-00-00-00-00-00-00-00-00-D0-45-00-00-10-00-00-42-82-42-00-02-00-00-00-00-00-10-00-00-10-00-00-00-00-10-00-00-10-00-00-00-00-00-00-10-00-00-00-A0-68-3B-00-55-02-00-00-5C-51-3B-00-68-01-00-00-00-10-40-00-00-46-02-00-00-00-00-00-00-00-00-00-00-10-42-00-20-16-00-00-00-60-42-00-84-55-03-00-90-94-30-00-1C-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-70-30-00-04-04-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-2E-74-65-78-74-00-00-00-8A-58-30-00-00-10-00-00-00-60-30-00-00-10-00-00-00-00-00-00-00-00-00-00-00-00-00-00-20-00-00-60-2E-72-64-61-74-61-00-00-F5-FA-0A-00-00-70-30-00-00-00-0B-00-00-70-30-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-40-2E-64-61-74-61-00-00-00-48-9D-04-00-00-70-3B-00-00-E0-00-00-00-70-3B-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-C0-2E-72-73-72-63-00-00-00-00-46-02-00-00-10-40-00-00-50-02-00-00-50-3C-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-40-2E-72-65-6C-6F-63-00-00-3A-61-03-00-00-60-42-00-00-70-03-00-00-A0-3E-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-42-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00";
 	const String headerPL = "32-4B-40-97-76-2A-2E-C4-76-2A-2E-C4-76-2A-2E-C4-E1-EE-50-C4-72-2A-2E-C4-51-EC-53-C4-41-2A-2E-C4-51-EC-43-C4-C7-2A-2E-C4-73-26-73-C4-74-2A-2E-C4-AC-09-32-C4-77-2A-2E-C4-B5-25-71-C4-75-2A-2E-C4-B5-25-4E-C4-74-2A-2E-C4-B5-25-73-C4-7E-2A-2E-C4-51-EC-55-C4-6F-2A-2E-C4-76-2A-2F-C4-86-2A-2E-C4-51-EC-40-C4-CB-28-2E-C4-51-EC-54-C4-77-2A-2E-C4-51-EC-52-C4-77-2A-2E-C4-76-2A-2E-C4-73-2A-2E-C4-51-EC-56-C4-77-2A-2E-C4-52-69-63-68-76-2A-2E-C4-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-50-45-00-00-4C-01-06-00-02-80-4D-46-00-00-00-00-00-00-00-00-E0-00-02-01-0B-01-08-00-00-70-30-00-00-A0-11-00-00-00-00-00-DC-81-2B-00-00-10-00-00-00-80-30-00-00-00-40-00-00-10-00-00-00-10-00-00-04-00-00-00-00-00-00-00-04-00-00-00-00-00-00-00-00-F0-45-00-00-10-00-00-71-50-42-00-02-00-00-00-00-00-10-00-00-10-00-00-00-00-10-00-00-10-00-00-00-00-00-00-10-00-00-00-90-7C-3B-00-4F-02-00-00-2C-65-3B-00-7C-01-00-00-00-20-40-00-70-4C-02-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-70-42-00-FC-55-03-00-A0-A4-30-00-1C-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-80-30-00-0C-04-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-2E-74-65-78-74-00-00-00-00-70-30-00-00-10-00-00-00-70-30-00-00-10-00-00-00-00-00-00-00-00-00-00-00-00-00-00-20-00-00-60-2E-72-64-61-74-61-00-00-00-00-0B-00-00-80-30-00-00-00-0B-00-00-80-30-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-40-2E-64-61-74-61-00-00-00-00-A0-04-00-00-80-3B-00-00-E0-00-00-00-80-3B-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-C0-2E-72-73-72-63-00-00-00-00-50-02-00-00-20-40-00-00-50-02-00-00-60-3C-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-40-2E-72-65-6C-6F-63-00-00-00-70-03-00-00-70-42-00-00-70-03-00-00-B0-3E-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-42-2E-78-64-61-74-61-00-00-00-10-00-00-00-E0-45-00-00-10-00-00-00-20-42-00-00-00-00-00-00-00-00-00-00-00-00-00-60-00-00-E0-00-00-00-00-00-00-00-00";
 	const String headerPLwin2k = "71-39-0C-AD-35-58-62-FE-35-58-62-FE-35-58-62-FE-A2-9C-1C-FE-31-58-62-FE-12-9E-1F-FE-02-58-62-FE-12-9E-0F-FE-84-58-62-FE-30-54-3F-FE-37-58-62-FE-EF-7B-7E-FE-34-58-62-FE-F6-57-3D-FE-36-58-62-FE-F6-57-3F-FE-33-58-62-FE-F6-57-02-FE-37-58-62-FE-12-9E-19-FE-2C-58-62-FE-35-58-63-FE-DA-58-62-FE-12-9E-0C-FE-88-5A-62-FE-12-9E-18-FE-34-58-62-FE-12-9E-1E-FE-34-58-62-FE-35-58-62-FE-30-58-62-FE-12-9E-1A-FE-34-58-62-FE-52-69-63-68-35-58-62-FE-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-50-45-00-00-4C-01-06-00-35-82-4D-46-00-00-00-00-00-00-00-00-E0-00-02-01-0B-01-08-00-00-60-30-00-00-A0-11-00-00-00-00-00-AC-79-2B-00-00-10-00-00-00-70-30-00-00-00-40-00-00-10-00-00-00-10-00-00-04-00-00-00-00-00-00-00-04-00-00-00-00-00-00-00-00-E0-45-00-00-10-00-00-50-A8-42-00-02-00-00-00-00-00-10-00-00-10-00-00-00-00-10-00-00-10-00-00-00-00-00-00-10-00-00-00-20-6C-3B-00-55-02-00-00-E4-54-3B-00-68-01-00-00-00-10-40-00-70-4C-02-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-60-42-00-6C-55-03-00-90-94-30-00-1C-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-70-30-00-04-04-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-2E-74-65-78-74-00-00-00-00-60-30-00-00-10-00-00-00-60-30-00-00-10-00-00-00-00-00-00-00-00-00-00-00-00-00-00-20-00-00-60-2E-72-64-61-74-61-00-00-00-00-0B-00-00-70-30-00-00-00-0B-00-00-70-30-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-40-2E-64-61-74-61-00-00-00-00-A0-04-00-00-70-3B-00-00-E0-00-00-00-70-3B-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-C0-2E-72-73-72-63-00-00-00-00-50-02-00-00-10-40-00-00-50-02-00-00-50-3C-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-40-2E-72-65-6C-6F-63-00-00-00-70-03-00-00-60-42-00-00-70-03-00-00-A0-3E-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-42-2E-78-64-61-74-61-00-00-00-10-00-00-00-D0-45-00-00-10-00-00-00-10-42-00-00-00-00-00-00-00-00-00-00-00-00-00-60-00-00-E0";
 	const String headerSC = "41-45-5A-78-05-24-34-2B-05-24-34-2B-05-24-34-2B-92-E0-4A-2B-01-24-34-2B-22-E2-49-2B-32-24-34-2B-22-E2-59-2B-B4-24-34-2B-00-28-69-2B-07-24-34-2B-DF-07-28-2B-04-24-34-2B-22-E2-4F-2B-07-24-34-2B-C6-2B-6B-2B-06-24-34-2B-C6-2B-54-2B-07-24-34-2B-C6-2B-69-2B-1A-24-34-2B-05-24-35-2B-F5-24-34-2B-22-E2-5A-2B-B9-26-34-2B-22-E2-4E-2B-04-24-34-2B-22-E2-48-2B-04-24-34-2B-05-24-34-2B-00-24-34-2B-22-E2-4C-2B-04-24-34-2B-52-69-63-68-05-24-34-2B-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-50-45-00-00-4C-01-05-00-79-87-82-46-00-00-00-00-00-00-00-00-E0-00-02-01-0B-01-08-00-00-90-30-00-00-C0-11-00-00-00-00-00-FC-AE-2B-00-00-10-00-00-00-A0-30-00-00-00-40-00-00-10-00-00-00-10-00-00-04-00-00-00-00-00-00-00-04-00-00-00-00-00-00-00-00-30-46-00-00-10-00-00-77-B5-42-00-02-00-00-00-00-00-10-00-00-10-00-00-00-00-10-00-00-10-00-00-00-00-00-00-10-00-00-00-D0-AE-3B-00-4F-02-00-00-64-97-3B-00-7C-01-00-00-00-70-40-00-F8-47-02-00-00-00-00-00-00-00-00-00-00-60-42-00-20-15-00-00-00-C0-42-00-EC-57-03-00-A0-C4-30-00-1C-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-A0-30-00-0C-04-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-2E-74-65-78-74-00-00-00-AA-8A-30-00-00-10-00-00-00-90-30-00-00-10-00-00-00-00-00-00-00-00-00-00-00-00-00-00-20-00-00-60-2E-72-64-61-74-61-00-00-1F-11-0B-00-00-A0-30-00-00-20-0B-00-00-A0-30-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-40-2E-64-61-74-61-00-00-00-E8-A1-04-00-00-C0-3B-00-00-E0-00-00-00-C0-3B-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-C0-2E-72-73-72-63-00-00-00-F8-47-02-00-00-70-40-00-00-50-02-00-00-A0-3C-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-40-2E-72-65-6C-6F-63-00-00-E0-63-03-00-00-C0-42-00-00-70-03-00-00-F0-3E-00-00-00-00-00-00-00-00-00-00-00-00-00-40-00-00-42-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00";
@@ -163,80 +290,91 @@ init
 
 	byte[] headerBytes = new byte[656];
 
-	using (FileStream stream = File.OpenRead(modules.First().FileName)) {
+	using (FileStream stream = File.OpenRead(game.MainModule.FileName)) {
 		stream.Position = 0x80;
 		stream.Read(headerBytes, 0, 656);
 	}
 
 	String headerBytesString = BitConverter.ToString(headerBytes);
-	
-	switch (headerBytesString) {
-		case headerUS:
-		case headerUSwin2k:
-		case headerPL:
-		case headerPLwin2k:
-			version = "USAPolish";
-			break;
-		case headerSC:
-		case headerSCwin2k:
-			version = "Scandinavia";
-			break;
-		case headerBR:
-		case headerBRwin2k:
-			version = "Brazilian";
-			break;
-		case headerFRNL:
-		case headerFRNLwin2k:
-		case headerGEPTSP:
-		case headerGEPTSPwin2k:
-			version = "DutchFrenchGermanPortugueseSpanish";
-			break;
-		case headerAP:
-		case headerAPwin2k:
-			version = "ActionPack";
-			break;
-		default:
-			version = "";
-			MessageBox.Show(
-				"The game version was not recognized, make sure you're using a compatible version.",
-				"LiveSplit | Ratatouille",
-				MessageBoxButtons.OK,MessageBoxIcon.Error
-			);
-			break;
-	}
 
-	refreshRate = 160;
-	// Keep last visited level stored, defaults to Menu02
-	vars.prevLevel = 0;
+    switch (headerBytesString) {
+        case headerUS:
+        case headerUSwin2k:
+        case headerPL:
+        case headerPLwin2k:
+        case headerDemo:
+        case headerDemowin2k:
+            version = "USAPolishDemo";
+            break;
+        case headerSC:
+        case headerSCwin2k:
+            version = "Scandinavia";
+            break;
+        case headerBR:
+        case headerBRwin2k:
+            version = "Brazilian";
+            break;
+        case headerGEPTSP:
+        case headerGEPTSPwin2k:
+            version = "DutchFrenchGermanPortugueseSpanish";
+            break;
+        case headerAP:
+        case headerAPwin2k:
+            version = "ActionPack";
+            break;
+        default:
+            version = "";
+            var input = MessageBox.Show(
+                "Uh-oh! It looks like your game version is not supported.\n"
+              + "The autosplitter will now be disabled! If you're having issues,\n"
+              + "please feel free to reach out to our modding community.\n"
+              + "Would you like to join the speedrunning discord?",
+                "LiveSplit | Ratatouille",
+                MessageBoxButtons.YesNo,MessageBoxIcon.Information);
+            if (input == DialogResult.Yes) Process.Start("https://discord.gg/zVNvemj");
+            break;
+    }
+    vars.splitNextMission = true;
+}
+
+update
+{
+    if (version == "") return false;
+}
+
+onStart
+{
+    vars.splitNextMission = true;
 }
 
 isLoading
 {
-	if (version != "") {
-		return current.load != 0.0;
-	}
+    return current.load != 0.0;
 }
 
 start
 {
-	if (version != "" && settings["auto_start"]) {
+	if (settings["auto_start"]) {
         if (settings["start_mb"]) {
             // If current level is Somewhere in France
             if (current.level == 1) {
                 double deltaStartPos = Math.Abs(old.xPos) - Math.Abs(-16.57965);
                 // If old xpos is virtually the start position
                 if ((deltaStartPos > -0.00001) && (deltaStartPos < 0.00001)) {
-                    // Return if game isn't paused and a textbox dialog was closed
-                    return (!current.paused && old.menuState == 5 && old.dialogType == 7);
+                    // If paused to not paused
+                    if (old.paused && !current.paused) {
+                        // Return if a textbox dialog was closed
+                        return current.menuState == 13 && current.dialogType == 7;
+                    }
                 }
             }
         }
         if (settings["start_pipemk"]) {
             // If current level is The slide of your life
             if (current.level == 46) {
-                // If remy goes from idle to sliding animation
+                // If remy goes from idle to start sliding animation
                 if (old.playerState == 2 && current.playerState == 76) {
-                    return current.xPos < -23.5 && current.xPos > -23.6;
+                    return (current.xPos < -23.5 && current.xPos > -23.6);
                 }
             }
         }
@@ -244,104 +382,83 @@ start
 }
 
 split
-{	
-	if (version != "") {
-		uint numCurrentActiveMissions = current.activeMissions >> 0xe;
-		uint numOldActiveMissions = old.activeMissions >> 0xe;
-
-		// Update last visited level if needed
-		if (old.level != current.level) {
-			vars.prevLevel = old.level;
-		}
-
-        if (settings["auto_split"]) {
-			if (settings["split_any"]) {
-				// Splitting based on level change
-				// Splits if old level is not current level and is not SW, CT, KD, MK, MG_CAKE, MG_SOUP, MG_SOUP2, MG_POTA, MG_MIXER, MG_PLATE, MG_PLATE2, MG_SARBA, MG_ALARM, MG_FEN, KN, KN_CHA, a Dream World or if going from main level to chase
-				if (old.level != current.level &&
-					old.level != 3 &&
-					old.level != 5 &&
-					old.level != 7 &&
-					old.level != 9 &&
-					old.level != 11 &&
-					old.level != 13 &&
-					old.level != 14 &&
-					old.level != 16 &&
-					old.level != 17 &&
-					old.level != 18 &&
-					old.level != 19 &&
-					old.level != 20 &&
-					old.level != 21 &&
-					old.level != 22 &&
-					old.level != 23 &&
-					old.level != 24 &&
-					old.level != 34 &&
-					old.level != 35 &&
-					old.level != 36 &&
-					old.level != 37 &&
-					old.level != 38 &&
-					old.level != 39 &&
-					old.level != 40 &&
-					old.level != 41 &&
-					old.level != 42 &&
-					old.level != 43 ||
-					(old.level == 5 && current.level == 6 || old.level == 7 && current.level == 8 || old.level == 9 && current.level == 10)) {
-						return true;
-				}
-				
-				// If current level is not MB, SW, PIPE_SW, PIPE_CT, PIPE_MK, PIPE_KN
-				if (current.level != 1 &&
-					current.level != 3 &&
-					current.level != 44 &&
-					current.level != 45 &&
-					current.level != 46 &&
-					current.level != 47) {
-					// Splits if mission complete book closes
-					if (current.dialogType == 3 && old.menuState == 5 && current.menuState == 13) {
-						return true;
-					}
-				}
-
-				// Bone Sequence Break
-				// Splits if current level is 5, holding bone and mission count goes from 10 to 9
-				if (current.level == 5) {
-					if (current.playerState == 50 || current.playerState == 51) {
-						return numOldActiveMissions == 10 && numCurrentActiveMissions == 9;
-					}
-				}
-				
-				// Splits after a colony collection gets completed
-				if (settings["split_anyCollection"]) {
-					if (current.dialogType == 23 && old.menuState == 5 && current.menuState == 13) {
-						return true;
-					}
-				}
-			}
-			
-			if (settings["split_deaths"]) {
-            	// Splits if died from water
-            	if (old.playerState != 134 && current.playerState == 134) {
-                	return true;
-            	// Splits if died from anything else
-            	} else {return old.playerState != 134 && old.playerState != 145 && current.playerState == 145;}
-			}
-		}
-		
-        if (settings["auto_end"]) {
-            if (settings["end_knchase"]) {
-                // Last Split, mission count goes to 1 after reaching the final cutscene trigger
-                if (current.level == 24) {
-                    if (numCurrentActiveMissions < numOldActiveMissions) return true;
+{
+    uint numCurrentActiveMissions = current.activeMissions >> 0xe;
+    uint numOldActiveMissions = old.activeMissions >> 0xe;
+    
+    if (settings["auto_split"]) {
+        if (settings["split_levels"]) {
+            // Splitting based on level change
+            if (old.level != current.level) {
+                // Disable Mission Splitting if entering dream world
+                if (current.level >= 34 && current.level <= 43)
+                {
+                    vars.splitNextMission = false;
+                }
+                else if (current.level == 3 || current.level == 5 || current.level == 7 || current.level == 9 || current.level == 23 && settings["splitLevel"+current.level.ToString()])
+                {
+                    return settings[old.level.ToString()+"to"+current.level.ToString()];
+                }
+                else
+                {
+                    return settings["splitLevel"+current.level.ToString()];
                 }
             }
-
-			if (settings["end_amc"]) {
-				if (current.level == 3) {
-					return current.dialogType == 23 && old.menuState == 0 && current.menuState == 1;
-				}
-			}
         }
-	}
+
+        if (settings["split_missions"]) {
+            // If book got closed
+            if (old.menuState == 5 && current.menuState == 13) {
+                // If splitNextMission is false and mission book dialog
+                if ((!vars.splitNextMission && current.dialogType == 3) || current.dialogType == 5)
+                {
+                    vars.splitNextMission = true;
+                }
+                // Split if mission completed book dialog
+                else if (current.dialogType == 3)
+                {
+                    return settings["splitMission"+current.level.ToString()];
+                }
+            }
+            
+            // Bone Sequence Break
+            if (current.level == 5) {
+                // If carrying bone
+                if (current.playerState == 50 || current.playerState == 51 || current.playerState == 52) {
+                    if (current.xPos >= 2 && current.xPos <= 3.2) {
+                        if (numCurrentActiveMissions < numOldActiveMissions)
+                            return settings["splitMission"+current.level.ToString()];
+                    }
+                }
+            }
+        }
+
+        // Split after a collection gets completed
+        if (settings["split_anyCollection"]) {
+            if (current.dialogType == 23 && old.menuState == 5 && current.menuState == 13)
+                return settings["splitCollectible"+current.level.ToString()];
+        }
+
+        if (settings["split_deaths"]) {
+            if ((old.playerState != 134 && current.playerState == 134) || (old.playerState != 134 && old.playerState != 145 && current.playerState == 145))
+                return settings["splitDeath"+current.level.ToString()];
+        }
+    }
+
+    if (settings["auto_end"]) {
+        if (settings["end_knchase"]) {
+            // Last Split, mission count goes to 1 after reaching the final cutscene trigger
+            if (current.level == 24) {
+                if (numCurrentActiveMissions < numOldActiveMissions) return true;
+            }
+        }
+
+        if (settings["end_amc"]) {
+            if (current.level == 3) {
+                if (current.dialogType == 23 && old.menuState == 0 && current.menuState == 1) return true;
+            }
+        }
+    }
 }
 
 // NiV-L-A, ThePhotoshopMaster, Sabe and SplasBoi
