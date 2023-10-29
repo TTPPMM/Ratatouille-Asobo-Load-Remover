@@ -212,12 +212,19 @@ startup
     settings.Add("end_amc", false, "All Main Collectibles", "auto_end");
     settings.SetToolTip("end_amc", "Splits after collecting the last collectible in the sewer");
 
+    // Levels that will be excluded from the settings
     uint[] excludedLevelsFromSettings = { 25, 26, 27, 28, 29, 49, 50, 51, 52 };
-    uint[] enabledLevels = { 2, 3, 5, 6, 7, 8, 9, 10, 15, 23, 24, 44, 45, 46, 47 };
+    // Levels that will be added to the level splitter
+    uint[] enabledLevels = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 23, 24, 44, 45, 46, 47 };
+    // Levels that will be added to the mission splitter
     uint[] missionLevels = { 1, 3, 5, 7, 9, 23, 44, 45, 46, 47 };
-    uint[] enabledMissionLevels = { 5, 7, 9, 23 };
+    // Mission levels that will be enabled by default
+    uint[] enabledMissionLevels = { 1, 5, 7, 9, 23 };
+    // Levels that will be added to the collectible splitter
     uint[] collectibleLevels = { 3, 5, 7, 9, 23, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48 };
+    // Levels that will be excluded from the death splitter
     uint[] excludedDeathLevels = { 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 25, 26, 27, 28, 29 };
+    // Levels in the level splitter to add the "Split when entering this level from" tooltip
     uint[] toolTip = { 3, 5, 7, 9, 23 };
 
     foreach (var level in levelList)
@@ -226,7 +233,7 @@ startup
         {
             settings.Add("splitLevel"+level.Key.ToString(), Array.Exists(enabledLevels, key => key == level.Key), level.Value, "split_levels");
             if (Array.Exists(toolTip, key => key == level.Key)) {
-                settings.SetToolTip("splitLevel"+level.Key.ToString(), "Split when entering this level from");
+                settings.SetToolTip("splitLevel"+level.Key.ToString(), "Split when entering this level from:");
             }
 
             if (Array.Exists(missionLevels, key => key == level.Key)) {
@@ -243,8 +250,8 @@ startup
         }
     }
 
+    // Setting for bone sequence break split
     settings.Add("split_bsb", true, "Bone Sequence Break", "splitMission5");
-
 
     uint[] fromLevelToSW = { 2, 5, 7, 9, 23, 44, 45, 46, 47, 48 };
     uint[] enabledLevelsToSW = { 2, 44, 45, 46, 47, 48 };
@@ -301,7 +308,7 @@ init
 
     string MD5Hash;
     using (var md5 = System.Security.Cryptography.MD5.Create())
-    using (var s = File.Open(modules.First().FileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+    using (var s = File.Open(game.MainModule.FileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
     MD5Hash = md5.ComputeHash(s).Select(x => x.ToString("X2")).Aggregate((a, b) => a + b);
 
     switch (MD5Hash) {
@@ -330,9 +337,9 @@ init
         default:
             version = "";
             var input = MessageBox.Show(
-                "Uh-oh! It looks like your game version is not supported.\n"
-              + "The autosplitter will now be disabled! If you're having issues,\n"
-              + "please feel free to reach out to our modding community.\n"
+                "Uh-oh! Your game version could not be recognized.\n"
+              + "You may be using an incompatible game version.\n"
+              + "Please check the README for supported versions.\n"
               + "Would you like to join the speedrunning discord?",
                 "LiveSplit | Ratatouille",
                 MessageBoxButtons.YesNo,MessageBoxIcon.Information);
@@ -344,6 +351,7 @@ init
 
 update
 {
+    // Disables the autosplitter when no supported version is running
     if (version == "") return false;
 }
 
@@ -454,8 +462,6 @@ split
         }
 
         if (settings["split_deaths"]) {
-            // 134 = water death
-            // 145 = death
             if ((old.playerState != 134 && current.playerState == 134) || (old.playerState != 134 && old.playerState != 145 && current.playerState == 145)) {
                 return settings["splitDeath"+current.level.ToString()];
             }
