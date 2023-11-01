@@ -256,13 +256,13 @@ startup
     uint[] fromLevelToSW = { 2, 5, 7, 9, 23, 44, 45, 46, 47, 48 };
     uint[] enabledLevelsToSW = { 2, 44, 45, 46, 47, 48 };
     uint[] fromLevelToCT = { 3, 34, 35, 36, 45 };
-    uint[] enabledLevelsToCT = { 34, 35, 36, 45 };
+    uint[] enabledLevelsToCT = { 3, 34, 35, 36, 45 };
     uint[] fromLevelToKD = { 3, 37, 44 };
-    uint[] enabledLevelsToKD = { 37, 44 };
+    uint[] enabledLevelsToKD = { 3, 37, 44 };
     uint[] fromLevelToMK = { 3, 38, 39, 40, 46 };
-    uint[] enabledLevelsToMK = { 38, 39, 40, 46 };
+    uint[] enabledLevelsToMK = { 3, 38, 39, 40, 46 };
     uint[] fromLevelToKN = { 3, 41, 42, 43, 47 };
-    uint[] enabledLevelsToKN = { 41, 42, 43, 47 };
+    uint[] enabledLevelsToKN = { 3, 41, 42, 43, 47 };
 
     // Add Sub-Splits to main levels
     foreach (var level in levelList)
