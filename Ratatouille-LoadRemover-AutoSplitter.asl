@@ -130,6 +130,30 @@ state("overlay", "Russian")
     uint playerState : 0x0037DEA8, 0x0, 0x94, 0x598;
 }
 
+state("overlay", "Italian")
+{
+	float load : 0x003E2D08, 0x8, 0x9D4, 0x5C;
+	uint level : 0x003E2D08, 0x8, 0x9C4, 0x7C;
+    uint activeMissions : 0x003E2D08, 0x8, 0xAF4, 0x20;
+    float xPos : 0x003E0C40;
+    bool paused : 0x003E2D14, 0x4;
+    byte menuState : 0x003CF0F4, 0x12D8;
+    uint dialogType : 0x003CF0F4, 0x12DC;
+	uint playerState : 0x003CBDC8, 0x0, 0x94, 0x598;
+}
+
+state("overlay_win2k", "Italian")
+{
+	float load : 0x003E2D08, 0x8, 0x9D4, 0x5C;
+	uint level : 0x003E2D08, 0x8, 0x9C4, 0x7C;
+    uint activeMissions : 0x003E2D08, 0x8, 0xAF4, 0x20;
+    float xPos : 0x003E0C40;
+    bool paused : 0x003E2D14, 0x4;
+    byte menuState : 0x003CF0F4, 0x12D8;
+    uint dialogType : 0x003CF0F4, 0x12DC;
+    uint playerState : 0x003CBDC8, 0x0, 0x94, 0x598;
+}
+
 startup
 {
     var levelList = new Dictionary<uint, string> {
@@ -214,17 +238,17 @@ startup
 
     // Levels that will be excluded from the settings
     uint[] excludedLevelsFromSettings = { 25, 26, 27, 28, 29, 49, 50, 51, 52 };
-    // Levels that will be added to the level splitter
+    // Levels that will be enabled by default in the level splitter
     uint[] enabledLevels = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 23, 24, 44, 45, 46, 47 };
     // Levels that will be added to the mission splitter
     uint[] missionLevels = { 1, 3, 5, 7, 9, 23, 44, 45, 46, 47 };
-    // Mission levels that will be enabled by default
+    // Levels that will be enabled by default in the mission splitter
     uint[] enabledMissionLevels = { 1, 5, 7, 9, 23 };
     // Levels that will be added to the collectible splitter
     uint[] collectibleLevels = { 3, 5, 7, 9, 23, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48 };
     // Levels that will be excluded from the death splitter
     uint[] excludedDeathLevels = { 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 25, 26, 27, 28, 29 };
-    // Levels in the level splitter to add the "Split when entering this level from" tooltip
+    // Levels in the level section to add the "Split when entering this level from" tooltip
     uint[] toolTip = { 3, 5, 7, 9, 23 };
 
     foreach (var level in levelList)
@@ -264,7 +288,7 @@ startup
     uint[] fromLevelToKN = { 3, 41, 42, 43, 47 };
     uint[] enabledLevelsToKN = { 3, 41, 42, 43, 47 };
 
-    // Add Sub-Splits to main levels
+    // Add Sub-Settings to main levels
     foreach (var level in levelList)
     {
         if (Array.Exists(fromLevelToSW, key => key == level.Key)) {
@@ -305,6 +329,8 @@ init
     const String headerAP = "4B7D8913595A2FE1F1DFEE6538F47AC8";
     const String headerAPwin2k = "7850EE46CA27174A8FD80882279BE079";
     const String headerRU = "E62F66692485AB338F2B3946E2E6BC33";
+    const String headerITALIAN = "69E2DEFE528BE1617C1A3EE281CF8348";
+    const String headerITALIANwin2k = "FAA7E5B1D503397F8F41A0CEFC0F097F";
 
     string MD5Hash;
     using (var md5 = System.Security.Cryptography.MD5.Create())
@@ -333,6 +359,10 @@ init
         case headerAP:
         case headerAPwin2k:
             version = "ActionPack";
+            break;
+        case headerITALIAN:
+        case headerITALIANwin2k:
+            version = "Italian";
             break;
         default:
             version = "";
@@ -382,6 +412,7 @@ start
                 }
             }
         }
+        
         if (settings["start_pipemk"]) {
             // If current level is The slide of your life
             if (current.level == 46) {
@@ -400,24 +431,18 @@ split
     uint numOldActiveMissions = old.activeMissions >> 0xe;
     
     if (settings["auto_split"]) {
-        // Disable Mission Splitting if entering dream world
         if (old.level != current.level) {
+            // Disable Mission Splitting if entering dream world
             if (current.level >= 34 && current.level <= 43) {
                 vars.splitNextMission = false;
             }
-        }
-
-        if (settings["split_levels"]) {
-            // Splitting based on level change
-            if (old.level != current.level) {
-                // Split if old level is an enabled subsplit on the current level
-                if (current.level == 3 || current.level == 5 || current.level == 7 || current.level == 9 || current.level == 23) {
-                    return settings[old.level.ToString()+"to"+current.level.ToString()];
-                }
-                //Split if the setting for the current level is enabled
-                else {
-                    return settings["splitLevel"+current.level.ToString()];
-                }
+            // Split if old level is an enabled subsplit on the current level
+            else if (current.level == 3 || current.level == 5 || current.level == 7 || current.level == 9 || current.level == 23) {
+                return settings[old.level.ToString()+"to"+current.level.ToString()];
+            }
+            //Split if the setting for the current level is enabled
+            else {
+                return settings["splitLevel"+current.level.ToString()];
             }
         }
 

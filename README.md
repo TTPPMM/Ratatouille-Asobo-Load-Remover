@@ -1,6 +1,6 @@
-# Ratatouille-Asobo-AutoSplit
+# Ratatouille (Asobo) AutoSplitter
 
-This is an autosplitter/load remover for the game **Ratatouille (Asobo)**
+This is an autosplitter and load remover for **Asobo Studio's Ratatouille**.
 
 Game versions currently supported:
 
@@ -12,3 +12,4 @@ Game versions currently supported:
 - Portuguese (Portugal) / Spanish
 - Scandinavian
 - ActionPack
+- Italian
