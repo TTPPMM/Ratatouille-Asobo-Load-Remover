@@ -239,7 +239,7 @@ startup
     // Levels that will be excluded from the settings
     uint[] excludedLevelsFromSettings = { 25, 26, 27, 28, 29, 49, 50, 51, 52 };
     // Levels that will be enabled by default in the level splitter
-    uint[] enabledLevels = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 23, 24, 44, 45, 46, 47 };
+    uint[] enabledLevels = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 23, 24, 44, 45, 46, 47, 48 };
     // Levels that will be added to the mission splitter
     uint[] missionLevels = { 1, 3, 5, 7, 9, 23, 44, 45, 46, 47 };
     // Levels that will be enabled by default in the mission splitter
@@ -276,17 +276,23 @@ startup
 
     // Setting for bone sequence break split
     settings.Add("split_bsb", true, "Bone Sequence Break", "splitMission5");
+    // Setting for mission splitting disabling
+    settings.Add("disable_missionsplit", false, "Disable Mission Splitting when entering:", "split_missions");
+    settings.SetToolTip("disable_missionsplit", "Turns off mission splitting when entering an enabled level.\nMission splitting turns back on after exiting the mission.");
+
+    uint[] disable_missionsplit = { 34, 35, 36, 37, 38, 39, 40, 41, 42, 43 };
+    uint[] disable_missionsplit_enabled = { 34, 35, 36, 37, 38, 39, 40, 41, 42, 43 };
 
     uint[] fromLevelToSW = { 2, 5, 7, 9, 23, 44, 45, 46, 47, 48 };
     uint[] enabledLevelsToSW = { 2, 44, 45, 46, 47, 48 };
     uint[] fromLevelToCT = { 3, 34, 35, 36, 45 };
-    uint[] enabledLevelsToCT = { 3, 34, 35, 36, 45 };
+    uint[] enabledLevelsToCT = { 45 };
     uint[] fromLevelToKD = { 3, 37, 44 };
-    uint[] enabledLevelsToKD = { 3, 37, 44 };
+    uint[] enabledLevelsToKD = { 44 };
     uint[] fromLevelToMK = { 3, 38, 39, 40, 46 };
-    uint[] enabledLevelsToMK = { 3, 38, 39, 40, 46 };
+    uint[] enabledLevelsToMK = { 46 };
     uint[] fromLevelToKN = { 3, 41, 42, 43, 47 };
-    uint[] enabledLevelsToKN = { 3, 41, 42, 43, 47 };
+    uint[] enabledLevelsToKN = { 47 };
 
     // Add Sub-Settings to main levels
     foreach (var level in levelList)
@@ -305,6 +311,9 @@ startup
         }
         if (Array.Exists(fromLevelToKN, key => key == level.Key)) {
             settings.Add(level.Key+"to23", Array.Exists(enabledLevelsToKN, key => key == level.Key), level.Value, "splitLevel23");
+        }
+        if (Array.Exists(disable_missionsplit, key => key == level.Key)) {
+            settings.Add("disable_missionsplit"+level.Key, Array.Exists(disable_missionsplit_enabled, key => key == level.Key), level.Value, "disable_missionsplit");
         }
     }
     refreshRate = 160;
@@ -433,11 +442,14 @@ split
     if (settings["auto_split"]) {
         if (old.level != current.level) {
             // Disable Mission Splitting if entering dream world
-            if (current.level >= 34 && current.level <= 43) {
-                vars.splitNextMission = false;
+            if (settings["disable_missionsplit"+current.level.ToString()]) {
+                if (current.level >= 34 && current.level <= 43) {
+                    vars.splitNextMission = false;
+                }
             }
+
             // Split if old level is an enabled subsplit on the current level
-            else if (current.level == 3 || current.level == 5 || current.level == 7 || current.level == 9 || current.level == 23) {
+            if (current.level == 3 || current.level == 5 || current.level == 7 || current.level == 9 || current.level == 23) {
                 return settings[old.level.ToString()+"to"+current.level.ToString()];
             }
             //Split if the setting for the current level is enabled
