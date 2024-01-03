@@ -211,104 +211,80 @@ startup
         { 52, "Test_Julien" }
     };
 
-    // Start
-    settings.Add("auto_start", true, "Start");
-    settings.Add("start_mb", true, "Somewhere in France", "auto_start");
-    settings.SetToolTip("start_mb", "Starts the timer in the first frame of movement");
-    settings.Add("start_pipemk", false, "The slide of your life", "auto_start");
-    settings.SetToolTip("start_pipemk", "Starts the timer when entering the slide of your life from the extras menu");
+    settings.Add("start", true, "Start");
+        settings.Add("start_mb", true, "Somewhere in France", "start");
+        settings.SetToolTip("start_mb", "Starts the timer in the first frame of movement");
 
-    // Split
-    settings.Add("auto_split", true, "Split");
-    // Levels
-    settings.Add("split_levels", true, "Levels", "auto_split");
+    settings.Add("split", true, "Split");
+        settings.Add("split_levels", true, "Levels", "split");
+        settings.Add("split_missions", true, "Missions", "split");
+            settings.Add("instantMissionSplit", false, "Instant mission split", "split_missions");
+            settings.Add("split_missions_disableDW", false, "Disable mission split for:", "split_missions");
+            settings.Add("split_missions_collection", false, "Collection", "split_missions");
+        settings.Add("split_chase", true, "Chase", "split");
+        settings.Add("split_deaths", false, "Deaths", "split");
+
+    // Tool-Tip
     settings.SetToolTip("split_levels", "Split on level changes");
-    // Missions
-    settings.Add("split_missions", true, "Missions", "auto_split");
     settings.SetToolTip("split_missions", "Split on mission completions");
-    // Collection
-    settings.Add("split_Collection", false, "Collection", "auto_split");
-    settings.SetToolTip("split_Collection", "Split on completed collection");
-    // Deaths
-    settings.Add("split_deaths", false, "Deaths", "auto_split");
-    settings.SetToolTip("split_deaths", "Split on deaths");
-    // Misc
-    settings.Add("split_misc", true, "Misc", "auto_split");
-    settings.Add("split_amc", false, "All Main Collectibles", "split_misc");
-    settings.SetToolTip("split_amc", "Split when picking up the last collectible in the sewer");
-    settings.Add("split_chase", true, "Chase Split", "split_misc");
+    settings.SetToolTip("split_missions_disableDW", "Turns off mission splitting when entering an enabled level.\nMission splitting turns back on after exiting the mission.");
+    settings.SetToolTip("split_missions_collection", "Split on completed collection");
     settings.SetToolTip("split_chase", "Split on the chase cutscene at the end");
-    settings.Add("disable_missionsplit", false, "Disable Mission Splitting when entering:", "split_misc");
-    settings.SetToolTip("disable_missionsplit", "Turns off mission splitting when entering an enabled level.\nMission splitting turns back on after exiting the mission.");
-    settings.Add("split_instantMissionSplit", false, "Instant Mission Split", "split_misc");
-    settings.SetToolTip("split_instantMissionSplit", "Split directly when completing a mission");
+    settings.SetToolTip("instantMissionSplit", "Split when the book opens instead of book closing");
+    settings.SetToolTip("split_deaths", "Split when dying");
 
-    // Levels that will be excluded from the settings
     uint[] excludedLevelsFromSettings = { 25, 26, 27, 28, 29, 49, 50, 51, 52 };
-    // Levels that will be enabled by default in the level splitter
-    uint[] enabledLevels = { 2, 3, 5, 6, 7, 8, 9, 10, 15, 23, 24, 44, 45, 46, 47 };
-    // Levels that will be added to the mission splitter
+    uint[] splitLevelsEnabled = { 2, 3, 5, 6, 7, 8, 9, 10, 15, 23, 24, 44, 45, 46, 47 };
     uint[] missionLevels = { 1, 3, 5, 7, 9, 23, 44, 45, 46, 47 };
-    // Levels that will be enabled by default in the mission splitter
-    uint[] enabledMissionLevels = { 1, 5, 7, 9, 23 };
-    // Levels that will be added to the collectible splitter
-    uint[] collectibleLevels = { 3, 5, 7, 9, 23, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48 };
-    // Levels that will be excluded from the death splitter
-    uint[] excludedDeathLevels = { 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 25, 26, 27, 28, 29 };
-    // Levels that will be added to the chase cutscene splitter
-    uint[] splitChaseLevels = { 6, 8, 10, 24 };
-    // Levels that will be enabled by default in the chase cutscene splitter
-    uint[] splitChaseEnabledLevels = { 24 };
-    // Levels that will be added to the disableMissionsplit setting
-    uint[] disableMissionsplit = { 34, 35, 36, 37, 38, 39, 40, 41, 42, 43 };
-    // Levels that will be enabled by default in the disableMissionsplit setting
-    uint[] disableMissionsplitEnabledLevels = { 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 47 };
-
+    uint[] splitMissionsEnabled = { 1, 5, 7, 9, 23 };
     uint[] ExcludedMissionCompletedBookEnabled = { 44, 45, 46 };
-    uint[] MissionCompletedUpgradeBook = { 1, 44, 45, 46};
-    uint[] MissionCompletedUpgradeBookEnabled = { 44, 45, 46 };
-
-    // Levels in the level section to add the "Split when entering this level from" tooltip
+    uint[] MissionCompletedLevelSuccess = { 1, 44, 45, 46};
+    uint[] MissionCompletedLevelSuccessEnabled = { 44, 45, 46 };
+    uint[] disableMissionsplitDW = { 34, 35, 36, 37, 38, 39, 40, 41, 42, 43 };
+    uint[] disableMissionsplitEnabledLevelsDW = { 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 47 };
+    uint[] splitChaseLevels = { 6, 8, 10, 24 };
+    uint[] splitChaseEnabledLevels = { 24 };
+    uint[] excludedDeathLevels = { 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 25, 26, 27, 28, 29 };
+    uint[] collectibleLevels = { 3, 5, 7, 9, 23, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48 };
     uint[] toolTip = { 3, 5, 7, 9, 23 };
 
     foreach (var level in levelList)
     {
         if (!Array.Exists(excludedLevelsFromSettings, key => key == level.Key))
         {
-            settings.Add("splitLevel"+level.Key.ToString(), Array.Exists(enabledLevels, key => key == level.Key), level.Value, "split_levels");
+            settings.Add("split_levels_"+level.Key.ToString(), Array.Exists(splitLevelsEnabled, key => key == level.Key), level.Value, "split_levels");
             if (Array.Exists(toolTip, key => key == level.Key)) {
-                settings.SetToolTip("splitLevel"+level.Key.ToString(), "Split when entering this level from:");
+                settings.SetToolTip("split_levels_"+level.Key.ToString(), "Split when entering this level from:");
             }
 
             if (Array.Exists(missionLevels, key => key == level.Key)) {
-                settings.Add("splitMission"+level.Key.ToString(), Array.Exists(enabledMissionLevels, key => key == level.Key), level.Value, "split_missions");
-                settings.Add("MissionCompletedBook"+level.Key.ToString(), !Array.Exists(ExcludedMissionCompletedBookEnabled, key => key == level.Key), "Mission Completed", "splitMission"+level.Key.ToString());
+                settings.Add("split_missions_"+level.Key.ToString(), Array.Exists(splitMissionsEnabled, key => key == level.Key), level.Value, "split_missions");
+                settings.Add("split_missions_missionCompletedBook"+level.Key.ToString(), !Array.Exists(ExcludedMissionCompletedBookEnabled, key => key == level.Key), "Mission Completed", "split_missions_"+level.Key.ToString());
+            }
+            if (Array.Exists(MissionCompletedLevelSuccess, key => key == level.Key)) {
+                settings.Add("split_missions_missionCompletedLevelSuccessBook"+level.Key.ToString(), Array.Exists(MissionCompletedLevelSuccessEnabled, key => key == level.Key), "Level Completed", "split_missions_"+level.Key.ToString());
             }
 
-            if (Array.Exists(MissionCompletedUpgradeBook, key => key == level.Key)) {
-                settings.Add("MissionCompletedUpgradeBook"+level.Key.ToString(), Array.Exists(MissionCompletedUpgradeBookEnabled, key => key == level.Key), "Level Completed", "splitMission"+level.Key.ToString());
+            if (Array.Exists(disableMissionsplitDW, key => key == level.Key)) {
+                settings.Add("split_missions_disableDW_"+level.Key, Array.Exists(disableMissionsplitEnabledLevelsDW, key => key == level.Key), level.Value, "split_missions_disableDW");
             }
-
-            if (Array.Exists(collectibleLevels, key => key == level.Key)) {
-                settings.Add("splitCollectible"+level.Key.ToString(), true, level.Value, "split_Collection");
+            
+            if (Array.Exists(splitChaseLevels, key => key == level.Key)) {
+                settings.Add("split_chase_"+level.Key.ToString(), Array.Exists(splitChaseEnabledLevels, key => key == level.Key), level.Value, "split_chase");
             }
 
             if (!Array.Exists(excludedDeathLevels, key => key == level.Key)) {
-                settings.Add("splitDeath"+level.Key.ToString(), true, level.Value, "split_deaths");
+                settings.Add("split_deaths_"+level.Key.ToString(), true, level.Value, "split_deaths");
             }
 
-            if (Array.Exists(splitChaseLevels, key => key == level.Key)) {
-                settings.Add("splitChase"+level.Key.ToString(), Array.Exists(splitChaseEnabledLevels, key => key == level.Key), level.Value, "split_chase");
-            }
-
-            if (Array.Exists(disableMissionsplit, key => key == level.Key)) {
-                settings.Add("disable_missionsplit"+level.Key, Array.Exists(disableMissionsplitEnabledLevels, key => key == level.Key), level.Value, "disable_missionsplit");
+            if (Array.Exists(collectibleLevels, key => key == level.Key)) {
+                settings.Add("split_missions_collectionComplededBook"+level.Key.ToString(), true, level.Value, "split_missions_collection");
             }
         }
     }
 
     // Setting for bone sequence break split
-    settings.Add("split_bsb", true, "Bone Sequence Break", "splitMission5");
+    settings.Add("split_missions_bsb", true, "Bone Sequence Break", "split_missions_5");
 
     uint[] fromLevelToSW = { 2, 5, 7, 9, 23, 44, 45, 46, 47, 48 };
     uint[] enabledLevelsToSW = { 2, 44, 45, 46, 47, 48 };
@@ -325,23 +301,23 @@ startup
     foreach (var level in levelList)
     {
         if (Array.Exists(fromLevelToSW, key => key == level.Key)) {
-            settings.Add(level.Key+"to3", Array.Exists(enabledLevelsToSW, key => key == level.Key), level.Value, "splitLevel3");
+            settings.Add(level.Key+"to3", Array.Exists(enabledLevelsToSW, key => key == level.Key), level.Value, "split_levels_3");
         }
 
         if (Array.Exists(fromLevelToCT, key => key == level.Key)) {
-            settings.Add(level.Key+"to5", Array.Exists(enabledLevelsToCT, key => key == level.Key), level.Value, "splitLevel5");
+            settings.Add(level.Key+"to5", Array.Exists(enabledLevelsToCT, key => key == level.Key), level.Value, "split_levels_5");
         }
 
         if (Array.Exists(fromLevelToKD, key => key == level.Key)) {
-            settings.Add(level.Key+"to7", Array.Exists(enabledLevelsToKD, key => key == level.Key), level.Value, "splitLevel7");
+            settings.Add(level.Key+"to7", Array.Exists(enabledLevelsToKD, key => key == level.Key), level.Value, "split_levels_7");
         }
 
         if (Array.Exists(fromLevelToMK, key => key == level.Key)) {
-            settings.Add(level.Key+"to9", Array.Exists(enabledLevelsToMK, key => key == level.Key), level.Value, "splitLevel9");
+            settings.Add(level.Key+"to9", Array.Exists(enabledLevelsToMK, key => key == level.Key), level.Value, "split_levels_9");
         }
 
         if (Array.Exists(fromLevelToKN, key => key == level.Key)) {
-            settings.Add(level.Key+"to23", Array.Exists(enabledLevelsToKN, key => key == level.Key), level.Value, "splitLevel23");
+            settings.Add(level.Key+"to23", Array.Exists(enabledLevelsToKN, key => key == level.Key), level.Value, "split_levels_23");
         }
     }
     refreshRate = 160;
@@ -373,6 +349,8 @@ init
     using (var md5 = System.Security.Cryptography.MD5.Create())
     using (var s = File.Open(game.MainModule.FileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
     MD5Hash = md5.ComputeHash(s).Select(x => x.ToString("X2")).Aggregate((a, b) => a + b);
+
+    // Russian needs to be tested before we can add it
 
     switch (MD5Hash) {
         case headerUS:
@@ -413,18 +391,13 @@ init
             if (input == DialogResult.Yes) Process.Start("https://discord.gg/zVNvemj");
             break;
     }
+    
     vars.splitNextMission = true;
 }
 
 update
 {
-    // Disables the autosplitter when no supported version is running
     if (version == "") return false;
-}
-
-onStart
-{
-    vars.splitNextMission = true;
 }
 
 isLoading
@@ -434,119 +407,72 @@ isLoading
 
 start
 {
-    if (settings["auto_start"]) {
-        if (settings["start_mb"]) {
-            // If current level is Somewhere in France
-            if (current.level == 1) {
-                double deltaStartPos = Math.Abs(old.xPos) - Math.Abs(-16.57965);
-                // If old xpos is virtually the start position
-                if ((deltaStartPos > -0.00001) && (deltaStartPos < 0.00001)) {
-                    if (old.paused && !current.paused) {
-                        // Return if a textbox dialog was closed
-                        return current.menuState == 13 && current.dialogType == 7;
-                    }
-                }
-            }
-        }
-        
-        if (settings["start_pipemk"]) {
-            // If current level is The slide of your life
-            if (current.level == 46) {
-                // If remy goes from idle to start sliding animation
-                if (old.playerState == 2 && current.playerState == 76) {
-                    return (current.xPos < -23.5 && current.xPos > -23.6);
+    if (settings["start_mb"]) {
+        // If current level is Somewhere in France
+        if (current.level == 1) {
+            double deltaStartPos = Math.Abs(old.xPos) - Math.Abs(-16.57965);
+            // If old xpos is virtually the start position
+            if ((deltaStartPos > -0.00001) && (deltaStartPos < 0.00001)) {
+                // If game resumed
+                if (old.paused && !current.paused) {
+                    // Return if a textbox dialog was closed
+                    return current.menuState == 13 && current.dialogType == 7;
                 }
             }
         }
     }
+}
+
+onStart
+{
+    vars.splitNextMission = true;
 }
 
 split
 {
     uint numCurrentActiveMissions = current.activeMissions >> 0xe;
     uint numOldActiveMissions = old.activeMissions >> 0xe;
-    
-    if (settings["auto_split"]) {
-        if (old.level != current.level) {
-            // Disable Mission Splitting if entering dream world
-            if (settings["disable_missionsplit"+current.level.ToString()]) {
-                vars.splitNextMission = false;
-            }
-            
-            // Split if old level is an enabled subsplit on the current level
-            if (current.level == 3 || current.level == 5 || current.level == 7 || current.level == 9 || current.level == 23) {
-                return settings[old.level.ToString()+"to"+current.level.ToString()];
-            }
-            //Split if the setting for the current level is enabled
-            else {
-                return settings["splitLevel"+current.level.ToString()];
-            }
+
+    // Level splitting
+    if (old.level != current.level) {
+        if (settings["split_missions_disableDW_"+current.level.ToString()]) {
+            vars.splitNextMission = false;
         }
 
-        if (settings["split_missions"]) {
-            if ((!settings["split_instantMissionSplit"] && old.menuState == 5 && current.menuState == 13) ||
-                (settings["split_instantMissionSplit"] && old.menuState != 1 && current.menuState == 1)) {
-                // If splitNextMission is false and mission book dialog
-                if ((!vars.splitNextMission && current.dialogType == 3) || current.dialogType == 5) {
-                    vars.splitNextMission = true;
+        if (current.level == 3 || current.level == 5 || current.level == 7 || current.level == 9 || current.level == 23) {
+            return settings[old.level.ToString()+"to"+current.level.ToString()];
+        }
+        else if (settings["split_levels_"+current.level.ToString()])
+        {
+            return true;
+        }
+    }
+
+    // Mission Splitting
+    if (settings["split_missions"]) {
+        bool shouldSplit = settings["instantMissionSplit"] ? (old.menuState != 1 && current.menuState == 1) : (old.menuState == 5 && current.menuState == 13);
+        string missionMenu = (current.dialogType == 3) ? "missionCompletedBook" : (current.dialogType == 5) ? "missionFailedBook" : (current.dialogType == 13) ? "missionCompletedLevelSuccessBook" : (current.dialogType == 23) ? "collectionComplededBook" : null;
+
+        if (shouldSplit && missionMenu != null) {
+            if (!vars.splitNextMission) vars.splitNextMission = true;
+            else if (settings["split_missions_"+missionMenu+current.level.ToString()]) return true;
+        }
+
+        // Bone Sequence Break
+        if (settings["split_missions_bsb"] && current.level == 5) {
+            if (current.playerState >= 45 && current.playerState <= 53) {
+                if (current.xPos >= 2 && current.xPos <= 3.2) {
+                    if (numCurrentActiveMissions < numOldActiveMissions) return true;
                 }
-                // Split if mission completed book dialog
-                else {
-                    if (current.dialogType == 3) {
-                        return settings["MissionCompletedBook"+current.level.ToString()];
-                    }
-                    else if (current.dialogType == 13) {
-                        return settings["MissionCompletedUpgradeBook"+current.level.ToString()];
-                    }
-                }
-            }
-
-            // Bone Sequence Break
-            // TEMPORARY SOLUTION
-            // PLEASE FIX ASAP
-            if (settings["split_bsb"]) {
-                // If current level is the city of lights
-                if (current.level == 5) {
-                    // If carrying/picking up bone
-                    if (current.playerState == 45 || current.playerState == 46 || current.playerState == 50 || current.playerState == 51 || current.playerState == 52) {
-                        // If inside the mission trigger area
-                        if (current.xPos >= 2 && current.xPos <= 3.2) {
-                            // Split if mission completed
-                            if (numCurrentActiveMissions < numOldActiveMissions) {
-                                return settings["splitMission"+current.level.ToString()];
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        // Split after a collection gets completed
-        if (settings["split_Collection"]) {
-            if (current.dialogType == 23 && old.menuState == 5 && current.menuState == 13) {
-                if (settings["splitCollectible"+current.level.ToString()]) return true;
-            }
-        }
-
-        if (settings["split_deaths"]) {
-            if ((old.playerState != 134 && current.playerState == 134) || (old.playerState != 134 && old.playerState != 145 && current.playerState == 145)) {
-                if (settings["splitDeath"+current.level.ToString()]) return true;
-            }
-        }
-
-        if (settings["split_chase"]) {
-            if (settings["splitChase"+current.level.ToString()]) {
-                // Chase Split, mission count goes to 1 after reaching the cutscene trigger at the end
-                if (numCurrentActiveMissions < numOldActiveMissions) return true;
-            }
-        }
-
-        if (settings["split_amc"]) {
-            if (current.level == 3) {
-                if (current.dialogType == 23 && old.menuState != 1 && current.menuState == 1) return true;
             }
         }
     }
-}
 
-// NiV-L-A, ThePhotoshopMaster, Sabe and SplasBoi
+    if (numCurrentActiveMissions < numOldActiveMissions) {
+        if (settings["split_chase_"+current.level.ToString()]) return true;
+    }
+
+    if ((old.playerState != 134 && current.playerState == 134) || (old.playerState != 134 && old.playerState != 145 && current.playerState == 145)) {
+        if (settings["split_deaths_"+current.level.ToString()]) return true;
+    }
+}
