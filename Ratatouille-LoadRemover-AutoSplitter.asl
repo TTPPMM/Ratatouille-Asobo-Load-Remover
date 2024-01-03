@@ -350,8 +350,6 @@ init
     using (var s = File.Open(game.MainModule.FileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
     MD5Hash = md5.ComputeHash(s).Select(x => x.ToString("X2")).Aggregate((a, b) => a + b);
 
-    // Russian needs to be tested before we can add it
-
     switch (MD5Hash) {
         case headerUS:
         case headerUSwin2k:
@@ -374,6 +372,9 @@ init
         case headerAP:
         case headerAPwin2k:
             version = "ActionPack";
+            break;
+        case headerRU:
+            version = "Russian";
             break;
         case headerITALIAN:
         case headerITALIANwin2k:
@@ -476,3 +477,5 @@ split
         if (settings["split_deaths_"+current.level.ToString()]) return true;
     }
 }
+
+// NiV-L-A, ThePhotoshopMaster, Sabe and SplasBoi
