@@ -1,161 +1,17 @@
-state("overlay", "USAPolishDemo")
-{
-    float load : 0x003DE8A8, 0x8, 0x9D4, 0x5C;
-    uint level : 0x003DE8A8, 0x8, 0x9C4, 0x7C;
-    uint activeMissions : 0x003DE8A8, 0x8, 0xAF4, 0x20;
-    float xPos : 0x003DCAA0;
-    bool paused : 0x003DE8B4, 0x4;
-    byte menuState : 0x003CAF54, 0x12D8;
-    uint dialogType : 0x003CAF54, 0x12DC;
-    uint playerState : 0x003C7C28, 0x0, 0x94, 0x598;
-}
-
-state("overlay_win2k", "USAPolishDemo")
-{
-    float load : 0x003DD8A8, 0x8, 0x9D4, 0x5C;
-    uint level : 0x003DD8A8, 0x8, 0x9C4, 0x7C;
-    uint activeMissions : 0x003DD8A8, 0x8, 0xAF4, 0x20;
-    float xPos : 0x003DBAA0;
-    bool paused : 0x003DD8B4, 0x4;
-    byte menuState : 0x003C9F54, 0x12D8;
-    uint dialogType : 0x003C9F54, 0x12DC;
-    uint playerState : 0x003C6C28, 0x0, 0x94, 0x598;
-}
-
-state("overlay", "Scandinavia")
-{
-    float load : 0x003E2D50, 0x8, 0x9D4, 0x5C;
-    uint level : 0x003E2D50, 0x8, 0x9C4, 0x7C;
-    uint activeMissions : 0x003E2D50, 0x8, 0xAF4, 0x20;
-    float xPos : 0x003E0C40;
-    bool paused : 0x003E2D5C, 0x4;
-    byte menuState : 0x003CF0F4, 0x12D8;
-    uint dialogType : 0x003CF0F4, 0x12DC;
-    uint playerState : 0x003CBDC8, 0x0, 0x94, 0x598;
-}
-
-state("overlay_win2k", "Scandinavia")
-{
-    float load : 0x003E2D50, 0x8, 0x9D4, 0x5C;
-    uint level : 0x003E2D50, 0x8, 0x9C4, 0x7C;
-    uint activeMissions : 0x003E2D50, 0x8, 0xAF4, 0x20;
-    float xPos : 0x003E0C40;
-    bool paused : 0x003E2D5C, 0x4;
-    byte menuState : 0x003CF0F4, 0x12D8;
-    uint dialogType : 0x003CF0F4, 0x12DC;
-    uint playerState : 0x003CBDC8, 0x0, 0x94, 0x598;
-}
-
-state("overlay", "Brazilian")
-{
-    float load : 0x003DFD28, 0x8, 0x9D4, 0x5C;
-    uint level : 0x003DFD28, 0x8, 0x9C4, 0x7C;
-    uint activeMissions : 0x003DFD28, 0x8, 0xAF4, 0x20;
-    float xPos : 0x003DDC60;
-    bool paused : 0x003DFD34, 0x4;
-    byte menuState : 0x003CC114, 0x12D8;
-    uint dialogType : 0x003CC114, 0x12DC;
-    uint playerState : 0x003C8DE8, 0x0, 0x94, 0x598;
-}
-
-state("overlay_win2k", "Brazilian")
-{
-    float load : 0x003DED08, 0x8, 0x9D4, 0x5C;
-    uint level : 0x003DED08, 0x8, 0x9C4, 0x7C;
-    uint activeMissions : 0x003DED08, 0x8, 0xAF4, 0x20;
-    float xPos : 0x003DCC40;
-    bool paused : 0x003DED14, 0x4;
-    byte menuState : 0x003CB0F4, 0x12D8;
-    uint dialogType : 0x003CB0F4, 0x12DC;
-    uint playerState : 0x003C7DC8, 0x0, 0x94, 0x598;
-}
-
-state("overlay", "DutchFrenchGermanPortugueseSpanish")
-{
-    float load : 0x003E2D08, 0x8, 0x9D4, 0x5C;
-    uint level : 0x003E2D08, 0x8, 0x9C4, 0x7C;
-    uint activeMissions : 0x003E2D08, 0x8, 0xAF4, 0x20;
-    float xPos : 0x003E0C40;
-    bool paused : 0x003E2D14, 0x4;
-    byte menuState : 0x003CF0F4, 0x12D8;
-    uint dialogType : 0x003CF0F4, 0x12DC;
-    uint playerState : 0x003CBDC8, 0x0, 0x94, 0x598;
-}
-
-state("overlay_win2k", "DutchFrenchGermanPortugueseSpanish")
-{
-    float load : 0x003E2D08, 0x8, 0x9D4, 0x5C;
-    uint level : 0x003E2D08, 0x8, 0x9C4, 0x7C;
-    uint activeMissions : 0x003E2D08, 0x8, 0xAF4, 0x20;
-    float xPos : 0x003E0C40;
-    bool paused : 0x003E2D14, 0x4;
-    byte menuState : 0x003CF0F4, 0x12D8;
-    uint dialogType : 0x003CF0F4, 0x12DC;
-    uint playerState : 0x003CBDC8, 0x0, 0x94, 0x598;
-}
-
-state("overlay", "ActionPack")
-{
-    float load : 0x003DF8A8, 0x8, 0x9D4, 0x5C;
-    uint level : 0x003DF8A8, 0x8, 0x9C4, 0x7C;
-    uint activeMissions : 0x003DF8A8, 0x8, 0xAF4, 0x20;
-    float xPos : 0x003DDAA0;
-    bool paused : 0x003DF8B4, 0x4;
-    byte menuState : 0x003CBF54, 0x12D8;
-    uint dialogType : 0x003CBF54, 0x12DC;
-    uint playerState : 0x003C8C28, 0x0, 0x94, 0x598;
-}
-
-state("overlay_win2k", "ActionPack")
-{
-    float load : 0x003DE8A8, 0x8, 0x9D4, 0x5C;
-    uint level : 0x003DE8A8, 0x8, 0x9C4, 0x7C;
-    uint activeMissions : 0x003DE8A8, 0x8, 0xAF4, 0x20;
-    float xPos : 0x003DCAA0;
-    bool paused : 0x003DE8B4, 0x4;
-    byte menuState : 0x003CAF54, 0x12D8;
-    uint dialogType : 0x003CAF54, 0x12DC;
-    uint playerState : 0x003C7C28, 0x0, 0x94, 0x598;
-}
-
-state("overlay", "Russian")
-{
-    float load : 0x003812C0, 0x8, 0x9D4, 0x5C;
-    uint level : 0x003812C0, 0x8, 0x9C4, 0x7C;
-    uint activeMissions : 0x003812C0, 0x8, 0xAF4, 0x20;
-    float xPos : 0x00393E78;
-    bool paused : 0x003812CC, 0x4;
-    byte menuState : 0x003811D8, 0x12D8;
-    uint dialogType : 0x003811D8, 0x12DC;
-    uint playerState : 0x0037DEA8, 0x0, 0x94, 0x598;
-}
-
-state("overlay", "Italian")
-{
-	float load : 0x003E2D08, 0x8, 0x9D4, 0x5C;
-	uint level : 0x003E2D08, 0x8, 0x9C4, 0x7C;
-    uint activeMissions : 0x003E2D08, 0x8, 0xAF4, 0x20;
-    float xPos : 0x003E0C40;
-    bool paused : 0x003E2D14, 0x4;
-    byte menuState : 0x003CF0F4, 0x12D8;
-    uint dialogType : 0x003CF0F4, 0x12DC;
-	uint playerState : 0x003CBDC8, 0x0, 0x94, 0x598;
-}
-
-state("overlay_win2k", "Italian")
-{
-	float load : 0x003E2D08, 0x8, 0x9D4, 0x5C;
-	uint level : 0x003E2D08, 0x8, 0x9C4, 0x7C;
-    uint activeMissions : 0x003E2D08, 0x8, 0xAF4, 0x20;
-    float xPos : 0x003E0C40;
-    bool paused : 0x003E2D14, 0x4;
-    byte menuState : 0x003CF0F4, 0x12D8;
-    uint dialogType : 0x003CF0F4, 0x12DC;
-    uint playerState : 0x003CBDC8, 0x0, 0x94, 0x598;
-}
+state("overlay") {}
+state("overlay_win2k") {}
 
 startup
 {
+    vars.ScanTargets = new SigScanTarget[]
+    {
+        new SigScanTarget(2, "8B 0D ?? ?? ?? ?? 50 E8 ?? ?? ?? ?? 8B 48 ?? 89 4E"),
+        new SigScanTarget(2, "D9 05 ?? ?? ?? ?? D8 A4 24 ?? ?? ?? ?? D9 1D ?? ?? ?? ?? D9 05 ?? ?? ?? ?? D8 A4 24 ?? ?? ?? ?? D9 1D ?? ?? ?? ?? D9 05 ?? ?? ?? ?? D8 A4 24 ?? ?? ?? ?? D9 1D ?? ?? ?? ?? D9 03"),
+        new SigScanTarget(1, "A3 ?? ?? ?? ?? 8D 88 ?? ?? ?? ?? E9 ?? ?? ?? ?? 33 C0"),
+        new SigScanTarget(2, "8B 0D ?? ?? ?? ?? B0 ?? 88 81 ?? ?? ?? ?? C3 ?? A1 ?? ?? ?? ?? 8B 80"),
+        new SigScanTarget(2, "8B 15 ?? ?? ?? ?? 8B 04 ?? C3")
+    };
+
     var levelList = new Dictionary<uint, string> {
         { 1, "Somewhere in France" },
         { 2, "Destiny River" },
@@ -325,99 +181,67 @@ startup
 
 init
 {
-    const String headerUS = "9948615D068513BAB955DE0CBADF00C2";
-    const String headerUSwin2k = "9769C678AEC7453A64D48F652AE8B8AC";
-    const String headerDemo = "44F606EBB6959F8C4826D19E7962C73B";
-    const String headerDemowin2k = "25544E0A99867B7E342EA515A4C49F86";
-    const String headerPL = "1CDAB42853B80FCBB0E3D56A995F2CC6";
-    const String headerPLwin2k = "84779B9B3F35B496D42295F1E146E3F7";
-    const String headerSC = "E1353143664E4ABA2C015323C4D23607";
-    const String headerSCwin2k = "B3E164D899A2CA382ECFCEF0B143BBB0";
-    const String headerBR = "4CC29D1D68CFBB1D010C6B1F9435C2E3";
-    const String headerBRwin2k = "E59483B16FBCABDC508E748103ED4BAD";
-    const String headerGEPTSP = "249E0FAFF154A1BA7A1A114BD559D942";
-    const String headerGEPTSPwin2k = "B1D9F3A6660FEFD746C0A13DC6F96D30";
-    const String headerFRNL = "";
-    const String headerFRNLwin2k = "";
-    const String headerAP = "4B7D8913595A2FE1F1DFEE6538F47AC8";
-    const String headerAPwin2k = "7850EE46CA27174A8FD80882279BE079";
-    const String headerRU = "E62F66692485AB338F2B3946E2E6BC33";
-    const String headerITALIAN = "69E2DEFE528BE1617C1A3EE281CF8348";
-    const String headerITALIANwin2k = "FAA7E5B1D503397F8F41A0CEFC0F097F";
+    IntPtr[] baseAddress = new IntPtr[vars.ScanTargets.Length];
 
-    string MD5Hash;
-    using (var md5 = System.Security.Cryptography.MD5.Create())
-    using (var s = File.Open(game.MainModule.FileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-    MD5Hash = md5.ComputeHash(s).Select(x => x.ToString("X2")).Aggregate((a, b) => a + b);
-
-    switch (MD5Hash) {
-        case headerUS:
-        case headerUSwin2k:
-        case headerPL:
-        case headerPLwin2k:
-            version = "USAPolishDemo";
-            break;
-        case headerSC:
-        case headerSCwin2k:
-            version = "Scandinavia";
-            break;
-        case headerBR:
-        case headerBRwin2k:
-            version = "Brazilian";
-            break;
-        case headerGEPTSP:
-        case headerGEPTSPwin2k:
-            version = "DutchFrenchGermanPortugueseSpanish";
-            break;
-        case headerAP:
-        case headerAPwin2k:
-            version = "ActionPack";
-            break;
-        case headerRU:
-            version = "Russian";
-            break;
-        case headerITALIAN:
-        case headerITALIANwin2k:
-            version = "Italian";
-            break;
-        default:
-            version = "";
+    for (int i = 0; i < vars.ScanTargets.Length; i++) {
+        IntPtr ptr = IntPtr.Zero;
+        foreach (var page in game.MemoryPages(true)) {
+            var scanner = new SignatureScanner(game, page.BaseAddress, (int)page.RegionSize);
+            if (ptr == IntPtr.Zero) {
+                ptr = scanner.Scan(vars.ScanTargets[i]);
+            }
+            if (ptr != IntPtr.Zero) {
+                baseAddress[i] = (IntPtr)BitConverter.ToInt32(game.ReadBytes(ptr, 4), 0);
+                break;
+            }
+        }
+        if (baseAddress[i] == IntPtr.Zero) {
             var input = MessageBox.Show(
-                "Uh-oh! Your game version could not be recognized.\n"
-              + "You may be using an incompatible game version.\n"
-              + "Please check the README for supported versions.\n"
-              + "Would you like to join the speedrunning discord?",
-                "LiveSplit | Ratatouille",
-                MessageBoxButtons.YesNo,MessageBoxIcon.Information);
+              "The autosplitter could not be initialized!\n"
+            + "Try restarting the game."
+            + "Would you like to join the speedrunning discord?",
+              "LiveSplit | Ratatouille",
+              MessageBoxButtons.YesNo,MessageBoxIcon.Error);
             if (input == DialogResult.Yes) Process.Start("https://discord.gg/zVNvemj");
-            break;
+            return false;
+        }
     }
-    
+
+    vars.watchers = new MemoryWatcherList();
+    vars.watchers.Add(new MemoryWatcher<float>(new DeepPointer(baseAddress[0], 0x8, 0x9D4, 0x5C)){ Name = "load" });
+    vars.watchers.Add(new MemoryWatcher<uint>(new DeepPointer(baseAddress[0], 0x8, 0x9C4, 0x7C)){ Name = "level" });
+    vars.watchers.Add(new MemoryWatcher<uint>(new DeepPointer(baseAddress[0], 0x8, 0xAF4, 0x20)){ Name = "activeMissions" });
+    vars.watchers.Add(new MemoryWatcher<float>(new DeepPointer(baseAddress[1])){ Name = "xPos" });
+    vars.watchers.Add(new MemoryWatcher<bool>(new DeepPointer(baseAddress[2], 0x4)){ Name = "paused" });
+    vars.watchers.Add(new MemoryWatcher<byte>(new DeepPointer(baseAddress[3], 0x12D8)){ Name = "menuState" });
+    vars.watchers.Add(new MemoryWatcher<uint>(new DeepPointer(baseAddress[3], 0x12DC)){ Name = "dialogType" });
+    vars.watchers.Add(new MemoryWatcher<uint>(new DeepPointer(baseAddress[4], 0x0, 0x94, 0x598)){ Name = "playerState" });
+
     vars.splitNextMission = true;
 }
 
 update
 {
-    if (version == "") return false;
+    vars.watchers.UpdateAll(game);
 }
 
 isLoading
 {
-    return current.load != 0.0;
+    return vars.watchers["load"].Current != 0.0;
 }
 
 start
 {
     if (settings["start_mb"]) {
         // If current level is Somewhere in France
-        if (current.level == 1) {
-            double deltaStartPos = Math.Abs(old.xPos) - Math.Abs(-16.57965);
+        if (vars.watchers["level"].Current == 1) {
+            double deltaStartPos = Math.Abs(vars.watchers["xPos"].Old) - Math.Abs(-16.57965);
             // If old xpos is virtually the start position
             if ((deltaStartPos > -0.00001) && (deltaStartPos < 0.00001)) {
                 // If game resumed
-                if (old.paused && !current.paused) {
+                if (vars.watchers["paused"].Old && !vars.watchers["paused"].Current) {
                     // Return if a textbox dialog was closed
-                    return current.menuState == 13 && current.dialogType == 7;
+                    return vars.watchers["menuState"].Current == 13 && vars.watchers["dialogType"].Current == 7;
                 }
             }
         }
@@ -431,19 +255,19 @@ onStart
 
 split
 {
-    uint numCurrentActiveMissions = current.activeMissions >> 0xe;
-    uint numOldActiveMissions = old.activeMissions >> 0xe;
+    uint numCurrentActiveMissions = vars.watchers["activeMissions"].Current >> 0xe;
+    uint numOldActiveMissions = vars.watchers["activeMissions"].Old >> 0xe;
 
     // Level splitting
-    if (old.level != current.level) {
-        if (settings["split_missions_disableDW_"+current.level.ToString()]) {
+    if (vars.watchers["level"].Changed) {
+        if (settings["split_missions_disableDW_"+vars.watchers["level"].Current.ToString()]) {
             vars.splitNextMission = false;
         }
 
-        if (current.level == 3 || current.level == 5 || current.level == 7 || current.level == 9 || current.level == 23) {
-            return settings[old.level.ToString()+"to"+current.level.ToString()];
+        if (vars.watchers["level"].Current == 3 || vars.watchers["level"].Current == 5 || vars.watchers["level"].Current == 7 || vars.watchers["level"].Current == 9 || vars.watchers["level"].Current == 23) {
+            return settings[vars.watchers["level"].Old.ToString()+"to"+vars.watchers["level"].Current.ToString()];
         }
-        else if (settings["split_levels_"+current.level.ToString()])
+        else if (settings["split_levels_"+vars.watchers["level"].Current.ToString()])
         {
             return true;
         }
@@ -451,18 +275,18 @@ split
 
     // Mission Splitting
     if (settings["split_missions"]) {
-        bool shouldSplit = settings["instantMissionSplit"] ? (old.menuState != 1 && current.menuState == 1) : (old.menuState == 5 && current.menuState == 13);
-        string missionMenu = (current.dialogType == 3) ? "missionCompletedBook" : (current.dialogType == 5) ? "missionFailedBook" : (current.dialogType == 13) ? "missionCompletedLevelSuccessBook" : (current.dialogType == 23) ? "collectionComplededBook" : null;
+        bool shouldSplit = settings["instantMissionSplit"] ? (vars.watchers["menuState"].Old != 1 && vars.watchers["menuState"].Current == 1) : (vars.watchers["menuState"].Old == 5 && vars.watchers["menuState"].Current == 13);
+        string missionMenu = (vars.watchers["dialogType"].Current == 3) ? "missionCompletedBook" : (vars.watchers["dialogType"].Current == 5) ? "missionFailedBook" : (vars.watchers["dialogType"].Current == 13) ? "missionCompletedLevelSuccessBook" : (vars.watchers["dialogType"].Current == 23) ? "collectionComplededBook" : null;
 
         if (shouldSplit && missionMenu != null) {
             if (!vars.splitNextMission) vars.splitNextMission = true;
-            else if (settings["split_missions_"+missionMenu+current.level.ToString()]) return true;
+            else if (settings["split_missions_"+missionMenu+vars.watchers["level"].Current.ToString()]) return true;
         }
 
         // Bone Sequence Break
-        if (settings["split_missions_bsb"] && current.level == 5) {
-            if (current.playerState >= 45 && current.playerState <= 53) {
-                if (current.xPos >= 2 && current.xPos <= 3.2) {
+        if (settings["split_missions_bsb"] && vars.watchers["level"].Current == 5) {
+            if (vars.watchers["playerState"].Current >= 45 && vars.watchers["playerState"].Current <= 53) {
+                if (vars.watchers["xPos"].Current >= 2 && vars.watchers["xPos"].Current <= 3.2) {
                     if (numCurrentActiveMissions < numOldActiveMissions) return true;
                 }
             }
@@ -470,11 +294,19 @@ split
     }
 
     if (numCurrentActiveMissions < numOldActiveMissions) {
-        if (settings["split_chase_"+current.level.ToString()]) return true;
+        if (settings["split_chase_"+vars.watchers["level"].Current.ToString()]) return true;
     }
 
-    if ((old.playerState != 134 && current.playerState == 134) || (old.playerState != 134 && old.playerState != 145 && current.playerState == 145)) {
-        if (settings["split_deaths_"+current.level.ToString()]) return true;
+
+    if ((vars.watchers["playerState"].Old != 134 && vars.watchers["playerState"].Current == 134) || (vars.watchers["playerState"].Old != 134 && vars.watchers["playerState"].Old != 145 && vars.watchers["playerState"].Current == 145)) {
+        if (settings["split_deaths_"+vars.watchers["level"].Current.ToString()]) return true;
+    }
+}
+
+reset
+{
+    if (vars.watchers["level"].Current == 1) {
+        return vars.watchers["dialogType"].Current == 1 && vars.watchers["activeMissions"].Current >> 0xe == 1;
     }
 }
 
