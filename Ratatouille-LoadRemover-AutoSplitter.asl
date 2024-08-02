@@ -77,7 +77,7 @@ startup
             settings.Add("instantMissionSplit", false, "Instant mission split", "split_missions");
             settings.Add("split_missions_disableDW", false, "Disable mission split for:", "split_missions");
             settings.Add("split_missions_collection", false, "Collection", "split_missions");
-        settings.Add("split_chase", true, "Chase", "split");
+        settings.Add("split_chase", true, "Cutscenes", "split");
         settings.Add("split_deaths", false, "Deaths", "split");
 
     // Tool-Tip
@@ -85,7 +85,7 @@ startup
     settings.SetToolTip("split_missions", "Split on mission completions");
     settings.SetToolTip("split_missions_disableDW", "Turns off mission splitting when entering an enabled level.\nMission splitting turns back on after exiting the mission.");
     settings.SetToolTip("split_missions_collection", "Split on completed collection");
-    settings.SetToolTip("split_chase", "Split on the chase cutscene at the end");
+    settings.SetToolTip("split_chase", "Split on start of cutscenes");
     settings.SetToolTip("instantMissionSplit", "Split when the book opens instead of book closing");
     settings.SetToolTip("split_deaths", "Split when dying");
 
@@ -98,7 +98,7 @@ startup
     uint[] MissionCompletedLevelSuccessEnabled = { 44, 45, 46 };
     uint[] disableMissionsplitDW = { 34, 35, 36, 37, 38, 39, 40, 41, 42, 43 };
     uint[] disableMissionsplitEnabledLevelsDW = { 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 47 };
-    uint[] splitChaseLevels = { 6, 8, 10, 24 };
+    uint[] splitChaseLevels = { 6, 8, 10, 15, 24 };
     uint[] splitChaseEnabledLevels = { 24 };
     uint[] excludedDeathLevels = { 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 25, 26, 27, 28, 29 };
     uint[] collectibleLevels = { 3, 5, 7, 9, 23, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48 };
