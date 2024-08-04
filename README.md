@@ -25,7 +25,6 @@ Double click on it, select browse and choose the asl file.
 
 ## Planned Features
 - Option to exclude a mission from the mission splitting.
-- Reset on save reload.
 - Auto-Start for more categories.
 - Support for the russian game version.
 - Switch to the autosplitting runtime.

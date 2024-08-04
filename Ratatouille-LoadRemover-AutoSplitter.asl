@@ -5,11 +5,18 @@ startup
 {
     vars.ScanTargets = new SigScanTarget[]
     {
+        // Load, Level, ActiveMissions
         new SigScanTarget(2, "8B 0D ?? ?? ?? ?? 50 E8 ?? ?? ?? ?? 8B 48 ?? 89 4E"),
+        // xPos
         new SigScanTarget(2, "D9 05 ?? ?? ?? ?? D8 A4 24 ?? ?? ?? ?? D9 1D ?? ?? ?? ?? D9 05 ?? ?? ?? ?? D8 A4 24 ?? ?? ?? ?? D9 1D ?? ?? ?? ?? D9 05 ?? ?? ?? ?? D8 A4 24 ?? ?? ?? ?? D9 1D ?? ?? ?? ?? D9 03"),
+        // Paused
         new SigScanTarget(1, "A3 ?? ?? ?? ?? 8D 88 ?? ?? ?? ?? E9 ?? ?? ?? ?? 33 C0"),
+        // MenuState, DialogType
         new SigScanTarget(2, "8B 0D ?? ?? ?? ?? B0 ?? 88 81 ?? ?? ?? ?? C3 ?? A1 ?? ?? ?? ?? 8B 80"),
-        new SigScanTarget(2, "8B 15 ?? ?? ?? ?? 8B 04 ?? C3")
+        // PlayerState
+        new SigScanTarget(2, "8B 15 ?? ?? ?? ?? 8B 04 ?? C3"),
+        // saveFileLoad
+        new SigScanTarget(2, "FF 05 ?? ?? ?? ?? 8b 4d ?? 89 48")
     };
 
     var levelList = new Dictionary<uint, string> {
@@ -67,9 +74,17 @@ startup
         { 52, "Test_Julien" }
     };
 
+    vars.missionMenuList = new Dictionary<uint, string> {
+        { 3, "missionCompletedBook" },
+        { 5, "missionFailedBook" },
+        { 13, "missionCompletedLevelSuccessBook"},
+        { 23, "collectionComplededBook" }
+    };
+
     settings.Add("start", true, "Start");
-        settings.Add("start_mb", true, "Somewhere in France", "start");
-        settings.SetToolTip("start_mb", "Starts the timer in the first frame of movement");
+        settings.Add("start_mb", true, levelList[1], "start");
+        settings.Add("start_soyl", true, levelList[46], "start");
+        
 
     settings.Add("split", true, "Split");
         settings.Add("split_levels", true, "Levels", "split");
@@ -79,8 +94,14 @@ startup
             settings.Add("split_missions_collection", false, "Collection", "split_missions");
         settings.Add("split_chase", true, "Cutscenes", "split");
         settings.Add("split_deaths", false, "Deaths", "split");
+    
+    settings.Add("reset", true, "Reset");
+        settings.Add("reset_tutorial_exit", true, "Tutorial to menu", "reset");
+        settings.Add("reset_on_save_load", true, "Savefile Load", "reset");
 
     // Tool-Tip
+    settings.SetToolTip("start_mb", "Starts the timer in the first frame of movement");
+    settings.SetToolTip("start_soyl", "Starts the timer when entering from the extras menu");
     settings.SetToolTip("split_levels", "Split on level changes");
     settings.SetToolTip("split_missions", "Split on mission completions");
     settings.SetToolTip("split_missions_disableDW", "Turns off mission splitting when entering an enabled level.\nMission splitting turns back on after exiting the mission.");
@@ -88,11 +109,13 @@ startup
     settings.SetToolTip("split_chase", "Split on start of cutscenes");
     settings.SetToolTip("instantMissionSplit", "Split when the book opens instead of book closing");
     settings.SetToolTip("split_deaths", "Split when dying");
+    settings.SetToolTip("reset_tutorial_exit", "Reset when going back to main menu from " + levelList[1]);
+    settings.SetToolTip("reset_on_save_load", "Reset when loading a save file");
 
     uint[] excludedLevelsFromSettings = { 25, 26, 27, 28, 29, 49, 50, 51, 52 };
     uint[] splitLevelsEnabled = { 2, 3, 5, 6, 7, 8, 9, 10, 15, 23, 24, 44, 45, 46, 47 };
     uint[] missionLevels = { 1, 3, 5, 7, 9, 23, 44, 45, 46, 47 };
-    uint[] splitMissionsEnabled = { 1, 5, 7, 9, 23 };
+    uint[] splitMissionsEnabled = { 5, 7, 9, 23 };
     uint[] ExcludedMissionCompletedBookEnabled = { 44, 45, 46 };
     uint[] MissionCompletedLevelSuccess = { 1, 44, 45, 46};
     uint[] MissionCompletedLevelSuccessEnabled = { 44, 45, 46 };
@@ -182,9 +205,11 @@ startup
 init
 {
     IntPtr[] baseAddress = new IntPtr[vars.ScanTargets.Length];
+    string nullAddresses = null;
 
     for (int i = 0; i < vars.ScanTargets.Length; i++) {
         IntPtr ptr = IntPtr.Zero;
+        
         foreach (var page in game.MemoryPages(true)) {
             var scanner = new SignatureScanner(game, page.BaseAddress, (int)page.RegionSize);
             if (ptr == IntPtr.Zero) {
@@ -195,16 +220,29 @@ init
                 break;
             }
         }
+
         if (baseAddress[i] == IntPtr.Zero) {
-            var input = MessageBox.Show(
-              "The autosplitter could not be initialized!\n"
-            + "Try restarting the game."
-            + "Would you like to join the speedrunning discord?",
-              "LiveSplit | Ratatouille",
-              MessageBoxButtons.YesNo,MessageBoxIcon.Error);
-            if (input == DialogResult.Yes) Process.Start("https://discord.gg/zVNvemj");
-            return false;
+            if (nullAddresses != null) {
+                if (i == baseAddress.Length - 1) {
+                    nullAddresses += " and ";
+                }
+                else {
+                    nullAddresses += ", ";
+                }
+            }
+            nullAddresses += i.ToString();
         }
+    }
+
+    if (nullAddresses != null) {
+        var input = MessageBox.Show(
+            "Address " + nullAddresses + " could not be found!\n"
+          + "The autosplitter failed to initialize!\n"
+          + "Would you like to join the speedrunning discord?",
+            "LiveSplit | Ratatouille",
+            MessageBoxButtons.YesNo,MessageBoxIcon.Error);
+        if (input == DialogResult.Yes) Process.Start("https://discord.gg/zVNvemj");
+        return false;
     }
 
     vars.watchers = new MemoryWatcherList();
@@ -216,6 +254,7 @@ init
     vars.watchers.Add(new MemoryWatcher<byte>(new DeepPointer(baseAddress[3], 0x12D8)){ Name = "menuState" });
     vars.watchers.Add(new MemoryWatcher<uint>(new DeepPointer(baseAddress[3], 0x12DC)){ Name = "dialogType" });
     vars.watchers.Add(new MemoryWatcher<uint>(new DeepPointer(baseAddress[4], 0x0, 0x94, 0x598)){ Name = "playerState" });
+    vars.watchers.Add(new MemoryWatcher<uint>(new DeepPointer(baseAddress[5])){ Name = "saveFileLoad" });
 
     vars.splitNextMission = true;
 }
@@ -223,6 +262,8 @@ init
 update
 {
     vars.watchers.UpdateAll(game);
+    vars.numCurrentActiveMissions = vars.watchers["activeMissions"].Current >> 0xe;
+    vars.numOldActiveMissions = vars.watchers["activeMissions"].Old >> 0xe;
 }
 
 isLoading
@@ -232,6 +273,8 @@ isLoading
 
 start
 {
+    if (!settings["start"]) { return false; }
+
     if (settings["start_mb"]) {
         // If current level is Somewhere in France
         if (vars.watchers["level"].Current == 1) {
@@ -241,7 +284,25 @@ start
                 // If game resumed
                 if (vars.watchers["paused"].Old && !vars.watchers["paused"].Current) {
                     // Return if a textbox dialog was closed
-                    return vars.watchers["menuState"].Current == 13 && vars.watchers["dialogType"].Current == 7;
+                    if (vars.watchers["menuState"].Current == 13 && vars.watchers["dialogType"].Current == 7) {
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+
+    if (settings["start_soyl"]) {
+        // If current level is The slide of your life
+        if (vars.watchers["level"].Current == 46) {
+            // If xPos is near the start position
+            if (vars.watchers["xPos"].Current > -24 && vars.watchers["xPos"].Current < -23) {
+                // If current active missions is 2
+                if (vars.numCurrentActiveMissions == 2) {
+                    // If finished loading
+                    if (vars.watchers["load"].Changed && vars.watchers["load"].Current == 0.0) {
+                        return true;
+                    }
                 }
             }
         }
@@ -255,8 +316,7 @@ onStart
 
 split
 {
-    uint numCurrentActiveMissions = vars.watchers["activeMissions"].Current >> 0xe;
-    uint numOldActiveMissions = vars.watchers["activeMissions"].Old >> 0xe;
+    if (!settings["split"]) { return false; }
 
     // Level splitting
     if (vars.watchers["level"].Changed) {
@@ -265,7 +325,9 @@ split
         }
 
         if (vars.watchers["level"].Current == 3 || vars.watchers["level"].Current == 5 || vars.watchers["level"].Current == 7 || vars.watchers["level"].Current == 9 || vars.watchers["level"].Current == 23) {
-            return settings[vars.watchers["level"].Old.ToString()+"to"+vars.watchers["level"].Current.ToString()];
+            if (settings[vars.watchers["level"].Old.ToString()+"to"+vars.watchers["level"].Current.ToString()]) {
+                return true;
+            }
         }
         else if (settings["split_levels_"+vars.watchers["level"].Current.ToString()])
         {
@@ -276,7 +338,12 @@ split
     // Mission Splitting
     if (settings["split_missions"]) {
         bool shouldSplit = settings["instantMissionSplit"] ? (vars.watchers["menuState"].Old != 1 && vars.watchers["menuState"].Current == 1) : (vars.watchers["menuState"].Old == 5 && vars.watchers["menuState"].Current == 13);
-        string missionMenu = (vars.watchers["dialogType"].Current == 3) ? "missionCompletedBook" : (vars.watchers["dialogType"].Current == 5) ? "missionFailedBook" : (vars.watchers["dialogType"].Current == 13) ? "missionCompletedLevelSuccessBook" : (vars.watchers["dialogType"].Current == 23) ? "collectionComplededBook" : null;
+        string missionMenu;
+
+        if (vars.missionMenuList.ContainsKey(vars.watchers["dialogType"].Current)) {
+            missionMenu = vars.missionMenuList[vars.watchers["dialogType"].Current];
+        }
+        else { missionMenu = null; }
 
         if (shouldSplit && missionMenu != null) {
             if (!vars.splitNextMission) vars.splitNextMission = true;
@@ -287,13 +354,13 @@ split
         if (settings["split_missions_bsb"] && vars.watchers["level"].Current == 5) {
             if (vars.watchers["playerState"].Current >= 45 && vars.watchers["playerState"].Current <= 53) {
                 if (vars.watchers["xPos"].Current >= 2 && vars.watchers["xPos"].Current <= 3.2) {
-                    if (numCurrentActiveMissions < numOldActiveMissions) return true;
+                    if (vars.numCurrentActiveMissions < vars.numOldActiveMissions) return true;
                 }
             }
         }
     }
 
-    if (numCurrentActiveMissions < numOldActiveMissions) {
+    if (vars.numCurrentActiveMissions < vars.numOldActiveMissions) {
         if (settings["split_chase_"+vars.watchers["level"].Current.ToString()]) return true;
     }
 
@@ -305,8 +372,20 @@ split
 
 reset
 {
-    if (vars.watchers["level"].Current == 1) {
-        return vars.watchers["dialogType"].Current == 1 && vars.watchers["activeMissions"].Current >> 0xe == 1;
+    if (!settings["reset"] || vars.numCurrentActiveMissions != 1) { return false; }
+
+    if (settings["reset_tutorial_exit"] && vars.watchers["level"].Current == 1) {
+        if (vars.watchers["dialogType"].Current == 1) {
+            return true;
+        }
+    }
+
+    if (settings["reset_on_save_load"]) {
+        if (vars.watchers["saveFileLoad"].Old != vars.watchers["saveFileLoad"].Current) {
+            if (vars.watchers["menuState"].Current == 2 && vars.watchers["dialogType"].Current == 1) {
+                return true;
+            }
+        }
     }
 }
 
