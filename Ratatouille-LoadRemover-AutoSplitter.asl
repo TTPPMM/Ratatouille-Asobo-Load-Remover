@@ -205,7 +205,7 @@ startup
 init
 {
     IntPtr[] baseAddress = new IntPtr[vars.ScanTargets.Length];
-    string nullAddresses = null;
+    int[] nullAddresses = new int[baseAddress.Length];
 
     for (int i = 0; i < vars.ScanTargets.Length; i++) {
         IntPtr ptr = IntPtr.Zero;
@@ -220,23 +220,37 @@ init
                 break;
             }
         }
-
         if (baseAddress[i] == IntPtr.Zero) {
-            if (nullAddresses != null) {
-                if (i == baseAddress.Length - 1) {
-                    nullAddresses += " and ";
-                }
-                else {
-                    nullAddresses += ", ";
-                }
-            }
-            nullAddresses += i.ToString();
+            nullAddresses[i] = i + 1;
         }
     }
 
-    if (nullAddresses != null) {
+    var missingAddresses = nullAddresses.Where(num => num != 0).ToList();
+    string missingAddressesString;
+
+    if (missingAddresses.Count > 1) {
+        missingAddressesString = string.Join(", ", missingAddresses.Take(missingAddresses.Count - 1)) + " and " + missingAddresses.Last();
+    }
+    else if (missingAddresses.Count == 1) {
+        missingAddressesString = missingAddresses[0].ToString();
+    }
+    else {
+        missingAddressesString = null;
+    }
+
+    vars.disableResetOnSave = false;
+
+    if (missingAddressesString == "6") {
+        vars.disableResetOnSave = true;
+        MessageBox.Show(
+            "Address " + missingAddressesString + " could not be found!\n"
+          + "The autosplitter will not be able to reset on save file load.",
+            "LiveSplit | Ratatouille",
+            MessageBoxButtons.OK,MessageBoxIcon.Information);
+    }
+    else if (missingAddressesString != null) {
         var input = MessageBox.Show(
-            "Address " + nullAddresses + " could not be found!\n"
+            "Failed to get address " + missingAddressesString + ".\n"
           + "The autosplitter failed to initialize!\n"
           + "Would you like to join the speedrunning discord?",
             "LiveSplit | Ratatouille",
@@ -379,6 +393,8 @@ reset
             return true;
         }
     }
+
+    if (vars.disableResetOnSave) { return false; }
 
     if (settings["reset_on_save_load"]) {
         if (vars.watchers["saveFileLoad"].Old != vars.watchers["saveFileLoad"].Current) {
