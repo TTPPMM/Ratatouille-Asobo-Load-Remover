@@ -207,20 +207,14 @@ init
     IntPtr[] baseAddress = new IntPtr[vars.ScanTargets.Length];
     int[] nullAddresses = new int[baseAddress.Length];
 
+    var scanner = new SignatureScanner(game, game.MainModule.BaseAddress, game.MainModule.ModuleMemorySize);
+
     for (int i = 0; i < vars.ScanTargets.Length; i++) {
-        IntPtr ptr = IntPtr.Zero;
-        
-        foreach (var page in game.MemoryPages(true)) {
-            var scanner = new SignatureScanner(game, page.BaseAddress, (int)page.RegionSize);
-            if (ptr == IntPtr.Zero) {
-                ptr = scanner.Scan(vars.ScanTargets[i]);
-            }
-            if (ptr != IntPtr.Zero) {
-                baseAddress[i] = (IntPtr)BitConverter.ToInt32(game.ReadBytes(ptr, 4), 0);
-                break;
-            }
+        IntPtr ptr = scanner.Scan(vars.ScanTargets[i]);
+        if (ptr != IntPtr.Zero) {
+            baseAddress[i] = (IntPtr)BitConverter.ToInt32(game.ReadBytes(ptr, 4), 0);
         }
-        if (baseAddress[i] == IntPtr.Zero) {
+        else {
             nullAddresses[i] = i + 1;
         }
     }
@@ -263,12 +257,12 @@ init
     vars.watchers.Add(new MemoryWatcher<float>(new DeepPointer(baseAddress[0], 0x8, 0x9D4, 0x5C)){ Name = "load" });
     vars.watchers.Add(new MemoryWatcher<uint>(new DeepPointer(baseAddress[0], 0x8, 0x9C4, 0x7C)){ Name = "level" });
     vars.watchers.Add(new MemoryWatcher<uint>(new DeepPointer(baseAddress[0], 0x8, 0xAF4, 0x20)){ Name = "activeMissions" });
-    vars.watchers.Add(new MemoryWatcher<float>(new DeepPointer(baseAddress[1])){ Name = "xPos" });
+    vars.watchers.Add(new MemoryWatcher<float>(baseAddress[1]){ Name = "xPos" });
     vars.watchers.Add(new MemoryWatcher<bool>(new DeepPointer(baseAddress[2], 0x4)){ Name = "paused" });
     vars.watchers.Add(new MemoryWatcher<byte>(new DeepPointer(baseAddress[3], 0x12D8)){ Name = "menuState" });
     vars.watchers.Add(new MemoryWatcher<uint>(new DeepPointer(baseAddress[3], 0x12DC)){ Name = "dialogType" });
     vars.watchers.Add(new MemoryWatcher<uint>(new DeepPointer(baseAddress[4], 0x0, 0x94, 0x598)){ Name = "playerState" });
-    vars.watchers.Add(new MemoryWatcher<uint>(new DeepPointer(baseAddress[5])){ Name = "saveFileLoad" });
+    vars.watchers.Add(new MemoryWatcher<uint>(baseAddress[5]){ Name = "saveFileLoad" });
 
     vars.splitNextMission = true;
 }
@@ -343,8 +337,7 @@ split
                 return true;
             }
         }
-        else if (settings["split_levels_"+vars.watchers["level"].Current.ToString()])
-        {
+        else if (settings["split_levels_"+vars.watchers["level"].Current.ToString()]) {
             return true;
         }
     }
