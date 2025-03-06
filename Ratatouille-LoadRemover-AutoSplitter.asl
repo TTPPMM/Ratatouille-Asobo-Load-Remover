@@ -84,8 +84,8 @@ startup
     settings.Add("start", true, "Start");
         settings.Add("start_mb", true, levelList[1], "start");
         settings.Add("start_soyl", true, levelList[46], "start");
+        settings.Add("start_pipekn", true, levelList[47], "start");
         
-
     settings.Add("split", true, "Split");
         settings.Add("split_levels", true, "Levels", "split");
         settings.Add("split_missions", true, "Missions", "split");
@@ -313,6 +313,17 @@ start
                     }
                 }
             }
+        }
+    }
+
+    // All of this is some real slop but I cannot be bothered with giving it princess treatment until we port it over to the autosplitting runtime
+    if (settings["start_pipekn"]) {
+        bool kitchenPipeCurrentLevel = vars.watchers["level"].Current == 47;
+        bool isAtStartPos = vars.watchers["xPos"].Current > 137.0 && vars.watchers["xPos"].Current < 138.0;
+        bool finishedLoad = vars.watchers["load"].Changed && vars.watchers["load"].Current == 0.0;
+
+        if (kitchenPipeCurrentLevel && isAtStartPos && finishedLoad && vars.numCurrentActiveMissions == 2) {
+            return true;
         }
     }
 }
